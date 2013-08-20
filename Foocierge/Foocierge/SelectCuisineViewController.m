@@ -7,6 +7,7 @@
 //
 
 #import "SelectCuisineViewController.h"
+#import "PreferencesViewController.h"
 
 @interface SelectCuisineViewController ()
 {
@@ -51,6 +52,28 @@
     return cell;
 }
 
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    
+    NSString *selectedOption = [cuisineOptions objectAtIndex:indexPath.row];
+    
+    if ([selectedOptions containsObject:selectedOption])
+    {
+        cell.accessoryType = UITableViewCellAccessoryNone;
+        [selectedOptions removeObject:selectedOption];
+    }
+    
+    else
+    {
+        cell.accessoryType = UITableViewCellAccessoryCheckmark;
+        [selectedOptions addObject:selectedOption];
+    }
+    
+    
+    
+}
+
 -(void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
@@ -73,9 +96,17 @@
     
 }
 
+
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return [cuisineOptions count];
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    PreferencesViewController *vc = (PreferencesViewController *)segue.destinationViewController;
+    vc.cuisinePreferences = selectedOptions;
+    
 }
 
 @end
