@@ -18,6 +18,7 @@
 		A44D5E3217C045D800C8445A /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A44D5E3117C045D800C8445A /* Default-568h@2x.png */; };
 		A44D5E3517C045D800C8445A /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A44D5E3317C045D800C8445A /* MainStoryboard.storyboard */; };
 		A44D5E3817C045D800C8445A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A44D5E3717C045D800C8445A /* ViewController.m */; };
+		A44D5E4017C07F3000C8445A /* SelectCuisineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A44D5E3F17C07F3000C8445A /* SelectCuisineViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,8 @@
 		A44D5E3417C045D800C8445A /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		A44D5E3617C045D800C8445A /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		A44D5E3717C045D800C8445A /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		A44D5E3E17C07F3000C8445A /* SelectCuisineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectCuisineViewController.h; sourceTree = "<group>"; };
+		A44D5E3F17C07F3000C8445A /* SelectCuisineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectCuisineViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +89,8 @@
 				A44D5E2A17C045D800C8445A /* AppDelegate.h */,
 				A44D5E2B17C045D800C8445A /* AppDelegate.m */,
 				A44D5E3317C045D800C8445A /* MainStoryboard.storyboard */,
+				A44D5E3E17C07F3000C8445A /* SelectCuisineViewController.h */,
+				A44D5E3F17C07F3000C8445A /* SelectCuisineViewController.m */,
 				A44D5E3617C045D800C8445A /* ViewController.h */,
 				A44D5E3717C045D800C8445A /* ViewController.m */,
 				A44D5E2217C045D700C8445A /* Supporting Files */,
@@ -176,6 +181,7 @@
 				A44D5E2817C045D800C8445A /* main.m in Sources */,
 				A44D5E2C17C045D800C8445A /* AppDelegate.m in Sources */,
 				A44D5E3817C045D800C8445A /* ViewController.m in Sources */,
+				A44D5E4017C07F3000C8445A /* SelectCuisineViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -260,10 +266,12 @@
 		A44D5E3C17C045D800C8445A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer: zack ulrich (9AQK86HGFB)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Foocierge/Foocierge-Prefix.pch";
 				INFOPLIST_FILE = "Foocierge/Foocierge-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "7E2C193B-07C1-43C8-B3B2-FF953172F940";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -271,10 +279,12 @@
 		A44D5E3D17C045D800C8445A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer: zack ulrich (9AQK86HGFB)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Foocierge/Foocierge-Prefix.pch";
 				INFOPLIST_FILE = "Foocierge/Foocierge-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "7E2C193B-07C1-43C8-B3B2-FF953172F940";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
