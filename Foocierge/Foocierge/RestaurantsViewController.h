@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+#define kBgQueue dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0) //1
+#define yelpRequestURL [NSURL URLWithString:@"http://api.yelp.com/v2/search?term=food&location=San+Francisco"] //2
+
 @interface RestaurantsViewController : UITableViewController
 
 @property (nonatomic, strong) NSMutableDictionary *preferencesDictionary;

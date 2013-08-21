@@ -8,6 +8,8 @@
 
 #import "RestaurantsViewController.h"
 
+
+
 @interface RestaurantsViewController ()
 {
     NSMutableArray *restuarantsArray;
@@ -35,6 +37,30 @@
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    [[UIApplication sharedApplication]
+     openURL:[NSURL URLWithString:@"yelp:///search?term=burritos"]];
+    
+    dispatch_async(kBgQueue, ^{
+        NSData* data = [NSData dataWithContentsOfURL:
+                        yelpRequestURL];
+        [self performSelectorOnMainThread:@selector(fetchedData:)
+                               withObject:data waitUntilDone:YES];
+    });
+}
+
+- (void)fetchedData:(NSData *)responseData {
+    //parse out the json data
+    NSError* error;
+    NSDictionary* json = [NSJSONSerialization
+                          JSONObjectWithData:responseData //1
+                          
+                          options:kNilOptions
+                          error:&error];
+    
+    NSArray* latestLoans = [json objectForKey:@"businesses"]; //2
+    
+    NSLog(@"businesses: %@", latestLoans); //3
 }
 
 - (void)didReceiveMemoryWarning

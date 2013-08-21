@@ -34,7 +34,7 @@
 	// Do any additional setup after loading the view.
     
     NSLog(@"height %f" , scrollView.frame.size.height);
-    scrollView.contentSize = CGSizeMake(scrollView.frame.size.width, 600);
+    scrollView.contentSize = CGSizeMake(scrollView.frame.size.width, 630);
     preferencesDictionary = [[NSMutableDictionary alloc] init];
 }
 
