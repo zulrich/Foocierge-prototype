@@ -16,10 +16,11 @@
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UITableView *dishTableView;
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
-@property (weak, nonatomic) IBOutlet UIButton *menuButton;
 @property (weak, nonatomic) IBOutlet UIButton *phoneButton;
+@property (weak, nonatomic) IBOutlet UILabel *phoneLabel;
 
 @property (nonatomic, strong) Restaurant *selectedRestaurant;
 - (IBAction)phoneButtonPressed:(id)sender;
+- (IBAction)menuButtonPressed:(id)sender;
 
 @end

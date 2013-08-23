@@ -44,7 +44,7 @@
     restuarantsArray = [[NSMutableArray alloc] init];
     
     NSURL *URL = [NSURL URLWithString:@"http://api.yelp.com/v2/search?term=restaurants&ll=37.788022,-122.399797"];
-    OAConsumer *consumer = [[OAConsumer alloc] initWithKey:consumerKey secret:consumerSecret];
+    OAConsumer *consumer = [[OAConsumer alloc] initWithKey:consumerKeyFoo secret:consumerSecretFoo];
     OAToken *yelpOAToken = [[OAToken alloc] initWithKey:yelptoken secret:tokenSecret];
     
     id<OASignatureProviding, NSObject> provider = [[OAHMAC_SHA1SignatureProvider alloc] init];

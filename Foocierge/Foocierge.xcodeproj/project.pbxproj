@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A4026C4F17C721E000E9C213 /* 75-phone.png in Resources */ = {isa = PBXBuildFile; fileRef = A4026C4E17C721E000E9C213 /* 75-phone.png */; };
 		A43A8C6017C5469B00D828F1 /* NSMutableURLRequest+Parameters.m in Sources */ = {isa = PBXBuildFile; fileRef = A43A8C3117C5469B00D828F1 /* NSMutableURLRequest+Parameters.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		A43A8C6117C5469B00D828F1 /* NSString+URLEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = A43A8C3317C5469B00D828F1 /* NSString+URLEncoding.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		A43A8C6217C5469B00D828F1 /* NSURL+Base.m in Sources */ = {isa = PBXBuildFile; fileRef = A43A8C3517C5469B00D828F1 /* NSURL+Base.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -61,11 +62,14 @@
 		A482D75117C6B591000D744E /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A482D75017C6B591000D744E /* libz.dylib */; };
 		A482D75417C6D28A000D744E /* CuisineCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A482D75317C6D28A000D744E /* CuisineCell.m */; };
 		A482D75617C6D2B4000D744E /* TableCellGradient.png in Resources */ = {isa = PBXBuildFile; fileRef = A482D75517C6D2B4000D744E /* TableCellGradient.png */; };
+		A482D75917C7101D000D744E /* MenuItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A482D75817C7101D000D744E /* MenuItemCell.m */; };
 		A4A9722517C2FEBB00E79D89 /* PreferencesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A9722417C2FEBB00E79D89 /* PreferencesViewController.m */; };
 		A4A9722917C3392200E79D89 /* RestaurantsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A9722817C3392200E79D89 /* RestaurantsViewController.m */; };
+		A4DB916C17C7121F0070DF36 /* MenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A4DB916B17C7121F0070DF36 /* MenuItem.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A4026C4E17C721E000E9C213 /* 75-phone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "75-phone.png"; sourceTree = "<group>"; };
 		A420E89E17C53EC10033DA6D /* keys.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = keys.h; sourceTree = "<group>"; };
 		A43A8C3017C5469B00D828F1 /* NSMutableURLRequest+Parameters.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableURLRequest+Parameters.h"; sourceTree = "<group>"; };
 		A43A8C3117C5469B00D828F1 /* NSMutableURLRequest+Parameters.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableURLRequest+Parameters.m"; sourceTree = "<group>"; };
@@ -150,11 +154,15 @@
 		A482D75217C6D28A000D744E /* CuisineCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CuisineCell.h; sourceTree = "<group>"; };
 		A482D75317C6D28A000D744E /* CuisineCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CuisineCell.m; sourceTree = "<group>"; };
 		A482D75517C6D2B4000D744E /* TableCellGradient.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TableCellGradient.png; sourceTree = "<group>"; };
+		A482D75717C7101D000D744E /* MenuItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuItemCell.h; sourceTree = "<group>"; };
+		A482D75817C7101D000D744E /* MenuItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuItemCell.m; sourceTree = "<group>"; };
 		A4A9722317C2FEBB00E79D89 /* PreferencesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PreferencesViewController.h; path = ../PreferencesViewController.h; sourceTree = "<group>"; };
 		A4A9722417C2FEBB00E79D89 /* PreferencesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PreferencesViewController.m; path = ../PreferencesViewController.m; sourceTree = "<group>"; };
 		A4A9722617C331F200E79D89 /* enums.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = enums.h; path = ../enums.h; sourceTree = "<group>"; };
 		A4A9722717C3392200E79D89 /* RestaurantsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RestaurantsViewController.h; path = ../RestaurantsViewController.h; sourceTree = "<group>"; };
 		A4A9722817C3392200E79D89 /* RestaurantsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RestaurantsViewController.m; path = ../RestaurantsViewController.m; sourceTree = "<group>"; };
+		A4DB916A17C7121F0070DF36 /* MenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MenuItem.h; path = "Foocierge/Data Model/MenuItem.h"; sourceTree = SOURCE_ROOT; };
+		A4DB916B17C7121F0070DF36 /* MenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MenuItem.m; path = "Foocierge/Data Model/MenuItem.m"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -279,6 +287,8 @@
 				A482D75317C6D28A000D744E /* CuisineCell.m */,
 				A43A8C9217C57E9500D828F1 /* RestaurantCell.h */,
 				A43A8C9317C57E9500D828F1 /* RestaurantCell.m */,
+				A482D75717C7101D000D744E /* MenuItemCell.h */,
+				A482D75817C7101D000D744E /* MenuItemCell.m */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -286,6 +296,8 @@
 		A43A8C9617C57F8800D828F1 /* Data Model */ = {
 			isa = PBXGroup;
 			children = (
+				A4DB916A17C7121F0070DF36 /* MenuItem.h */,
+				A4DB916B17C7121F0070DF36 /* MenuItem.m */,
 				A4A9722617C331F200E79D89 /* enums.h */,
 				A43A8C8F17C5767600D828F1 /* Restaurant.h */,
 				A43A8C9017C5767600D828F1 /* Restaurant.m */,
@@ -357,6 +369,7 @@
 		A44D5E2117C045D700C8445A /* Foocierge */ = {
 			isa = PBXGroup;
 			children = (
+				A4026C4E17C721E000E9C213 /* 75-phone.png */,
 				A44D5E2A17C045D800C8445A /* AppDelegate.h */,
 				A44D5E2B17C045D800C8445A /* AppDelegate.m */,
 				A44D5E3317C045D800C8445A /* MainStoryboard.storyboard */,
@@ -364,9 +377,9 @@
 				A482D75517C6D2B4000D744E /* TableCellGradient.png */,
 				A43A8C9917C5800800D828F1 /* Placeholder.png */,
 				A43A8C9A17C5800800D828F1 /* Placeholder@2x.png */,
-				A43A8C9517C57F8800D828F1 /* Cells */,
 				A43A8C9617C57F8800D828F1 /* Data Model */,
 				A43A8C9717C57F8800D828F1 /* ViewControllers */,
+				A43A8C9517C57F8800D828F1 /* Cells */,
 				A44D5E2217C045D700C8445A /* Supporting Files */,
 			);
 			path = Foocierge;
@@ -447,6 +460,7 @@
 				A43A8C9C17C5800800D828F1 /* Placeholder.png in Resources */,
 				A43A8C9D17C5800800D828F1 /* Placeholder@2x.png in Resources */,
 				A482D75617C6D2B4000D744E /* TableCellGradient.png in Resources */,
+				A4026C4F17C721E000E9C213 /* 75-phone.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -484,6 +498,8 @@
 				A43A8C9417C57E9500D828F1 /* RestaurantCell.m in Sources */,
 				A43A8CA417C5ACBD00D828F1 /* RestaurantInfoViewController.m in Sources */,
 				A482D75417C6D28A000D744E /* CuisineCell.m in Sources */,
+				A482D75917C7101D000D744E /* MenuItemCell.m in Sources */,
+				A4DB916C17C7121F0070DF36 /* MenuItem.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

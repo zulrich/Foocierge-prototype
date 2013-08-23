@@ -384,19 +384,11 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" id="g0j-gF-dNs">
-                                        <rect key="frame" x="20" y="78" width="118" height="23"/>
+                                        <rect key="frame" x="20" y="78" width="33" height="23"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <state key="normal">
-                                            <attributedString key="attributedTitle">
-                                                <fragment content="+1-234-567-8910">
-                                                    <attributes>
-                                                        <color key="NSColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                                        <font key="NSFont" size="14" name="Helvetica-Bold"/>
-                                                        <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
-                                                    </attributes>
-                                                </fragment>
-                                            </attributedString>
+                                        <state key="normal" image="75-phone.png">
+                                            <attributedString key="attributedTitle"/>
                                         </state>
                                         <connections>
                                             <action selector="phoneButtonPressed:" destination="0Qk-hl-xzM" eventType="touchUpInside" id="Ulb-EA-6rM"/>
@@ -406,24 +398,27 @@
                                         <rect key="frame" x="40" y="118" width="240" height="128"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                     </mapView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="zi8-iX-faX">
-                                        <rect key="frame" x="124" y="459" width="73" height="44"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMinY="YES" heightSizable="YES"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                        <state key="normal" title="Button">
-                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <state key="highlighted">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                    </button>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="65" sectionHeaderHeight="22" sectionFooterHeight="22" id="dfk-XA-ibO">
-                                        <rect key="frame" x="40" y="279" width="240" height="154"/>
+                                        <rect key="frame" x="40" y="279" width="240" height="230"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <button key="tableFooterView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="zi8-iX-faX">
+                                            <rect key="frame" x="0.0" y="87" width="240" height="56"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMinY="YES" heightSizable="YES"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                            <state key="normal" title="See Full Menu">
+                                                <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <state key="highlighted">
+                                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="menuButtonPressed:" destination="0Qk-hl-xzM" eventType="touchUpInside" id="fkQ-rw-K5a"/>
+                                            </connections>
+                                        </button>
                                         <prototypes>
-                                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MenuItemCell" id="HKl-gC-DDx">
+                                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MenuItemCell" id="HKl-gC-DDx" customClass="MenuItemCell">
                                                 <rect key="frame" x="0.0" y="22" width="240" height="65"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -433,7 +428,7 @@
                                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="xhA-ij-uiE">
                                                             <rect key="frame" x="20" y="2" width="117" height="21"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                             <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         </label>
@@ -444,16 +439,28 @@
                                                                 <fragment content="Item desciption">
                                                                     <attributes>
                                                                         <color key="NSColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                                                        <font key="NSFont" size="17" name="Helvetica"/>
+                                                                        <font key="NSFont" size="11" name="Helvetica"/>
                                                                         <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
                                                                     </attributes>
                                                                 </fragment>
                                                             </attributedString>
                                                             <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         </label>
+                                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="$ 999.99" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="eMv-HM-4Zz">
+                                                            <rect key="frame" x="164" y="2" width="56" height="21"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        </label>
                                                     </subviews>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 </view>
+                                                <connections>
+                                                    <outlet property="describtionLabel" destination="ba5-Sr-MDU" id="4Xe-e6-c2Z"/>
+                                                    <outlet property="nameLabel" destination="xhA-ij-uiE" id="9BO-5T-X6c"/>
+                                                    <outlet property="priceLabel" destination="eMv-HM-4Zz" id="cUm-vj-vBO"/>
+                                                </connections>
                                             </tableViewCell>
                                         </prototypes>
                                         <connections>
@@ -461,6 +468,13 @@
                                             <outlet property="delegate" destination="0Qk-hl-xzM" id="Lav-9e-9D0"/>
                                         </connections>
                                     </tableView>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Fm1-Tm-3aV">
+                                        <rect key="frame" x="61" y="80" width="119" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <connections>
                                     <outlet property="delegate" destination="0Qk-hl-xzM" id="sYp-kf-o4F"/>
@@ -474,48 +488,62 @@
                         <outlet property="addressLabel" destination="uOU-bL-RDu" id="Gd8-Ef-QKr"/>
                         <outlet property="dishTableView" destination="dfk-XA-ibO" id="oTj-OV-ykf"/>
                         <outlet property="mapView" destination="4Xl-g5-v5c" id="dly-u9-zzr"/>
-                        <outlet property="menuButton" destination="zi8-iX-faX" id="6hn-ql-Trk"/>
                         <outlet property="phoneButton" destination="g0j-gF-dNs" id="0Es-pI-q7d"/>
+                        <outlet property="phoneLabel" destination="Fm1-Tm-3aV" id="Yjj-L3-l11"/>
                         <outlet property="restaurantName" destination="LAB-Vf-tFi" id="izB-oh-iQe"/>
                         <outlet property="scrollView" destination="YbX-lf-UQg" id="Ggp-65-DcI"/>
+                        <segue destination="2aa-Wj-6ZQ" kind="push" identifier="viewMenuSegue" id="L2u-D9-VsR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nKe-WT-b7a" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2024" y="-105"/>
         </scene>
-        <!--Table View Controller-->
-        <scene sceneID="16y-97-jrW">
+        <!--View Controller-->
+        <scene sceneID="0Dv-rb-GHK">
             <objects>
-                <tableViewController id="6p1-fD-MO9" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="L9h-Ah-L99">
-                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="LbP-04-UWC">
-                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                </view>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="6p1-fD-MO9" id="Cmc-ul-vvb"/>
-                            <outlet property="delegate" destination="6p1-fD-MO9" id="uer-Eu-o4m"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" id="Pcc-54-ofJ"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="JNF-Eo-dfM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="2aa-Wj-6ZQ" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ih2-Cg-gFK">
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="LWP-K8-r5Y">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="v9w-iF-0sh">
+                                        <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="9xR-5O-6jr">
+                                <rect key="frame" x="0.0" y="460" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <items>
+                                    <barButtonItem title="Cart" id="nTo-Eh-u87"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="NTM-Zl-mfo"/>
+                                    <barButtonItem title="Checkout" id="Htw-aL-SBe"/>
+                                </items>
+                            </toolbar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="WqD-hV-Kxz"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BK9-sE-pCy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2422" y="-97"/>
+            <point key="canvasLocation" x="2519" y="-146"/>
         </scene>
     </scenes>
     <resources>
+        <image name="75-phone.png" width="24" height="24"/>
         <image name="Placeholder.png" width="60" height="60"/>
     </resources>
     <classes>
@@ -523,6 +551,14 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/CuisineCell.h"/>
             <relationships>
                 <relationship kind="outlet" name="cusineLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="MenuItemCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MenuItemCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="describtionLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="nameLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="priceLabel" candidateClass="UILabel"/>
             </relationships>
         </class>
         <class className="PreferencesViewController" superclassName="UIViewController">
@@ -551,12 +587,13 @@
         <class className="RestaurantInfoViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/RestaurantInfoViewController.h"/>
             <relationships>
+                <relationship kind="action" name="menuButtonPressed:"/>
                 <relationship kind="action" name="phoneButtonPressed:"/>
                 <relationship kind="outlet" name="addressLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="dishTableView" candidateClass="UITableView"/>
                 <relationship kind="outlet" name="mapView" candidateClass="MKMapView"/>
-                <relationship kind="outlet" name="menuButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="phoneButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="phoneLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="restaurantName" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
             </relationships>

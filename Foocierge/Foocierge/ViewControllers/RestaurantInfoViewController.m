@@ -8,8 +8,14 @@
 
 #import "RestaurantInfoViewController.h"
 #import "keys.h"
+#import "MenuItemCell.h"
+#import "MenuItem.h"
+#import <Parse/Parse.h>
 
 @interface RestaurantInfoViewController ()
+{
+    NSMutableArray *previewMenuItems;
+}
 
 @end
 
@@ -28,13 +34,42 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    
-    NSLog(@"view load");
-    
+        
     self.scrollView.frame = CGRectMake(0, 10, 320, 504);
         
     [self.scrollView setContentSize:CGSizeMake(320, 660.0f)];
     
+        
+    previewMenuItems = [[NSMutableArray alloc] init];
+    
+    [self setupView];
+    [self loadMenuItems];
+    
+    
+    
+        
+}
+
+-(void)loadMenuItems
+{
+    PFQuery *queryForGames = [PFQuery queryWithClassName:@"MenuItems"];
+    //[queryForGames whereKey:@"restuarantID" equalTo:self.selectedRestaurant.restaurantID];
+    [queryForGames findObjectsInBackgroundWithBlock:^(NSArray *menuObjects, NSError *error) {
+        for (PFObject *menuItem in menuObjects) {
+           
+            MenuItem *item = [[MenuItem alloc] initWithObjID:menuItem.objectId  restID:[menuItem objectForKey:@"restaurantID"] withName:[menuItem objectForKey:@"name"] withPrice:[menuItem objectForKey:@"price"] withDesc:[menuItem objectForKey:@"describition"] withTag:[menuItem objectForKey:@"tag"] withRange:[menuItem objectForKey:@"priceRange"]];
+            
+            [previewMenuItems addObject:item];
+                            
+        }
+        
+        [self.dishTableView reloadData];
+    }];
+
+}
+
+-(void)setupView
+{
     self.restaurantName.text = self.selectedRestaurant.name;
     
     NSArray *addArr = [[NSArray alloc]initWithArray:[self.selectedRestaurant.locationDictionary objectForKey:@"address"]];
@@ -43,13 +78,11 @@
     NSString *city = [self.selectedRestaurant.locationDictionary objectForKey:@"city"];
     
     NSString *fullAddr = [[NSString alloc] initWithFormat:@"%@ , %@", address, city ];
-
+    
     
     self.addressLabel.text = fullAddr;
+    self.phoneLabel.text = self.selectedRestaurant.phoneNumber;
     
-    //NSLog(@"phone number %@", self.selectedRestaurant.phoneNumber);
-    
-    self.phoneButton.titleLabel.text = self.selectedRestaurant.phoneNumber;
     
     CLLocationCoordinate2D zoomLocation;
     zoomLocation.latitude = lattitude_hard_cord;
@@ -62,14 +95,7 @@
     [self.mapView setRegion:viewRegion animated:YES];
     
     CLLocationCoordinate2D coord = CLLocationCoordinate2DMake(lattitude_hard_cord, longitude_hard_cord);
-    
-    
-    
-    
-    
-    
-    
-        
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -81,16 +107,19 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"MenuItemCell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    MenuItemCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
-    cell.textLabel.text = @"item";
+    MenuItem *item = [previewMenuItems objectAtIndex:indexPath.row];
+    
+    [cell configureCell:item];
+    
     
     return cell;
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 2;
+    return [previewMenuItems count];
 }
 
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView
@@ -98,9 +127,43 @@
 
 }
 
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    
+}
+
 
 - (IBAction)phoneButtonPressed:(id)sender
 {
+    NSString *phoneNumber = [NSString stringWithFormat:@"telprompt://%@", self.selectedRestaurant.phoneNumber];
     
+    NSString *cleanedString = [[phoneNumber componentsSeparatedByCharactersInSet:[[NSCharacterSet characterSetWithCharactersInString:@"0123456789-+()"] invertedSet]] componentsJoinedByString:@""];
+
+    
+    if(![self.selectedRestaurant.phoneNumber isEqualToString:@""])
+    {
+        NSLog(@"PHONE NUMBER %@", cleanedString);
+        NSURL *URL = [NSURL URLWithString:cleanedString];
+        [[UIApplication sharedApplication] openURL:URL];
+        
+    }
+    
+    else
+    {
+        UIAlertView *alert = [[UIAlertView alloc]
+                              initWithTitle: @"Alert"
+                              message: @"No phone number found"
+                              delegate: nil
+                              cancelButtonTitle:@"OK"
+                              otherButtonTitles:nil];
+        [alert show];
+    }
+   
+}
+
+- (IBAction)menuButtonPressed:(id)sender
+{
+    [self performSegueWithIdentifier:@"viewMenuSegue" sender:self];
+
 }
 @end

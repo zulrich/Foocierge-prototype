@@ -19,6 +19,8 @@
 @property (nonatomic, strong) NSString *rating_image_url;
 @property (nonatomic, strong) NSDictionary *locationDictionary;
 
+@property (nonatomic, strong) NSString *restaurantID;
+
 -(id)initFromYelpBusinessDictionary:(NSDictionary *)businessDict;
 
 
