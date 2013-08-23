@@ -30,7 +30,22 @@
 {
     self.nameLabel.text = item.name;
     
-    NSString *price = [NSString stringWithFormat:@"$ %@", item.price];
+    
+
+    
+    NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
+    
+    [formatter setNumberStyle:NSNumberFormatterDecimalStyle];
+    
+    [formatter setMaximumFractionDigits:2];
+    [formatter setMinimumFractionDigits:2];
+    
+    [formatter setRoundingMode: NSNumberFormatterRoundUp];
+    
+    NSString *numberString = [formatter stringFromNumber:[NSNumber numberWithFloat:[item.price floatValue]]];
+    
+    NSString *price = [NSString stringWithFormat:@"$ %@", numberString];
+
     
     self.priceLabel.text = price;
     

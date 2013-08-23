@@ -11,6 +11,7 @@
 #import "MenuItemCell.h"
 #import "MenuItem.h"
 #import <Parse/Parse.h>
+#import "MenuViewController.h"
 
 @interface RestaurantInfoViewController ()
 {
@@ -129,7 +130,8 @@
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    
+    MenuViewController *vc = (MenuViewController *)segue.destinationViewController;
+    vc.selectedRestaurant = self.selectedRestaurant;
 }
 
 
