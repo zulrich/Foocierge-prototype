@@ -7,12 +7,19 @@
 //
 
 #import "RestaurantsViewController.h"
+#import "keys.h"
+#import "OAuthConsumer.h"
+#import "SVProgressHUD.h"
+#import "Restaurant.h"
+#import "RestaurantCell.h"
+#import "RestaurantInfoViewController.h"
 
 
 
 @interface RestaurantsViewController ()
 {
     NSMutableArray *restuarantsArray;
+    NSMutableData *responseData;
 }
 
 @end
@@ -30,38 +37,89 @@
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
+    [super viewDidLoad]; 
+    
+    [SVProgressHUD showWithStatus:@"Loading Results"];
+    
+    restuarantsArray = [[NSMutableArray alloc] init];
+    
+    NSURL *URL = [NSURL URLWithString:@"http://api.yelp.com/v2/search?term=restaurants&ll=37.788022,-122.399797"];
+    OAConsumer *consumer = [[OAConsumer alloc] initWithKey:consumerKey secret:consumerSecret];
+    OAToken *yelpOAToken = [[OAToken alloc] initWithKey:yelptoken secret:tokenSecret];
+    
+    id<OASignatureProviding, NSObject> provider = [[OAHMAC_SHA1SignatureProvider alloc] init];
+    NSString *realm = nil;
+    
+    OAMutableURLRequest *request = [[OAMutableURLRequest alloc] initWithURL:URL
+                                                                   consumer:consumer
+                                                                      token:yelpOAToken
+                                                                      realm:realm
+                                                          signatureProvider:provider];
+    [request prepare];
 
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    responseData = [[NSMutableData alloc] init];
     
-    [[UIApplication sharedApplication]
-     openURL:[NSURL URLWithString:@"yelp:///search?term=burritos"]];
+    NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
+        
+   
     
-    dispatch_async(kBgQueue, ^{
-        NSData* data = [NSData dataWithContentsOfURL:
-                        yelpRequestURL];
-        [self performSelectorOnMainThread:@selector(fetchedData:)
-                               withObject:data waitUntilDone:YES];
-    });
+    
 }
 
-- (void)fetchedData:(NSData *)responseData {
-    //parse out the json data
+- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
+{
+    [responseData setLength:0];
+}
+
+- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
+{
+    [responseData appendData:data];
+}
+
+- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
+    NSLog(@"Error: %@, %@", [error localizedDescription], [error localizedFailureReason]);
+}
+
+- (void)connectionDidFinishLoading:(NSURLConnection *)connection
+{
+    [SVProgressHUD showSuccessWithStatus:@"Done Enjoy"];
     NSError* error;
-    NSDictionary* json = [NSJSONSerialization
-                          JSONObjectWithData:responseData //1
-                          
-                          options:kNilOptions
-                          error:&error];
     
-    NSArray* latestLoans = [json objectForKey:@"businesses"]; //2
     
-    NSLog(@"businesses: %@", latestLoans); //3
+    
+    NSDictionary *json = [NSJSONSerialization JSONObjectWithData:responseData options:kNilOptions error:&error];
+    
+    NSArray *businesses = [json objectForKey:@"businesses"];
+    
+    for (int i = 0; i < [businesses count]; i++)
+    {
+        NSDictionary *obj = [businesses objectAtIndex:i];
+        Restaurant *restObj = [[Restaurant alloc] initFromYelpBusinessDictionary:obj];
+       
+        [restuarantsArray addObject:restObj];
+
+    }
+    
+    [self.tableView reloadData];
+    
+    
+    //NSLog(@"business %@", businesses);
 }
+
+
+//- (void)fetchedData:(NSData *)responseData {
+//    //parse out the json data
+//    NSError* error;
+//    NSDictionary* json = [NSJSONSerialization
+//                          JSONObjectWithData:responseData //1
+//                          
+//                          options:kNilOptions
+//                          error:&error];
+//    
+//    NSArray* latestLoans = [json objectForKey:@"businesses"]; //2
+//    
+//    NSLog(@"businesses: %@", latestLoans); //3
+//}
 
 - (void)didReceiveMemoryWarning
 {
@@ -71,29 +129,22 @@
 
 #pragma mark - Table view data source
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
-    return 0;
-}
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 0;
+    return [restuarantsArray count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    
-    // Configure the cell...
+    static NSString *CellIdentifier = @"RestaurantCell";
+    RestaurantCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+        
+    [cell configureCell:[restuarantsArray objectAtIndex:indexPath.row]];
     
     return cell;
 }
+
 
 /*
 // Override to support conditional editing of the table view.
@@ -136,15 +187,13 @@
 
 #pragma mark - Table view delegate
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
+    RestaurantInfoViewController *vc = (RestaurantInfoViewController *)segue.destinationViewController;
+    
+    NSIndexPath *selectedRowIndex = [self.tableView indexPathForSelectedRow];
+    vc.selectedRestaurant = [restuarantsArray objectAtIndex:selectedRowIndex.row];
 }
 
 @end

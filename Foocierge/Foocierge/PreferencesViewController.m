@@ -33,9 +33,22 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
-    NSLog(@"height %f" , scrollView.frame.size.height);
-    scrollView.contentSize = CGSizeMake(scrollView.frame.size.width, 630);
+    scrollView.contentSize = CGSizeMake(scrollView.frame.size.width, 680);
     preferencesDictionary = [[NSMutableDictionary alloc] init];
+    
+    //[self customizeAppearence];
+    
+}
+
+-(void)customizeAppearence
+{
+    [self setSetColor:spicySegment];
+    [self setSetColor:sweetSegment];
+    [self setSetColor:savorySegment];
+    [self setSetColor:organicSegment];
+    [self setSetColor:seafoodSegment];
+    [self setSetColor:saltySegment];
+    [self setSetColor:priceSegment];
 }
 
 - (void)didReceiveMemoryWarning
@@ -44,32 +57,34 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void)setSetColor:(UISegmentedControl *)controllerItem
+{
+    for (int i=0; i<[controllerItem.subviews count]; i++)
+    {
+        if ([[controllerItem.subviews objectAtIndex:i] isSelected] )
+        {
+            NSLog(@"set color");
+            [[controllerItem.subviews objectAtIndex:i] setTintColor:[UIColor greenColor]];
+        }
+        else
+        {   NSLog(@"no color");
+            [[controllerItem.subviews objectAtIndex:i] setTintColor:nil];
+        }
+    }
+
+}
+
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
-    NSLog(@"scrolling");
+
 }
 
 - (IBAction)segmentChanged:(id)sender
 {
-    NSLog(@"segment changed");
-    
     UISegmentedControl *controller = (UISegmentedControl *)sender;
-    NSLog(@"selected index %d", controller.selectedSegmentIndex);
-    for (int i=0; i<[controller.subviews count]; i++)
-    {
-        if ([[controller.subviews objectAtIndex:i]isSelected] )
-        {
-            //UIColor *tintcolor=[UIColor colorWithRed:127.0/255.0 green:161.0/255.0 blue:183.0/255.0 alpha:1.0];
-            
-            NSLog(@"match at subview %d", i);
-            [[controller.subviews objectAtIndex:i] setTintColor:[UIColor greenColor]];
-        }
-        else
-        {
-            [[controller.subviews objectAtIndex:i] setTintColor:nil];
-        }
-    }
     
+    [self setSetColor:controller];
+        
     if(sender == spicySegment)
     {
         [preferencesDictionary setObject:[NSNumber numberWithInt:controller.selectedSegmentIndex ] forKey:@"spicy"];

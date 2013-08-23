@@ -8,6 +8,7 @@
 
 #import "SelectCuisineViewController.h"
 #import "PreferencesViewController.h"
+#import "CuisineCell.h"
 
 @interface SelectCuisineViewController ()
 {
@@ -47,14 +48,16 @@
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CuisineCell"];
-    cell.textLabel.text = [cuisineOptions objectAtIndex:indexPath.row];
+    static NSString *CellIdentifier = @"CuisineCell";
+    CuisineCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    
+    [cell configureCell:[cuisineOptions objectAtIndex:indexPath.row]];
     return cell;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    CuisineCell *cell = (CuisineCell *) [tableView cellForRowAtIndexPath:indexPath];
     
     NSString *selectedOption = [cuisineOptions objectAtIndex:indexPath.row];
     
@@ -76,7 +79,7 @@
 
 -(void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    UITableViewCell *cell = (CuisineCell *)[tableView cellForRowAtIndexPath:indexPath];
     
     NSString *selectedOption = [cuisineOptions objectAtIndex:indexPath.row];
     
