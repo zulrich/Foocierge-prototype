@@ -63,11 +63,10 @@
     {
         if ([[controllerItem.subviews objectAtIndex:i] isSelected] )
         {
-            NSLog(@"set color");
             [[controllerItem.subviews objectAtIndex:i] setTintColor:[UIColor greenColor]];
         }
         else
-        {   NSLog(@"no color");
+        {
             [[controllerItem.subviews objectAtIndex:i] setTintColor:nil];
         }
     }

@@ -47,6 +47,10 @@
 		A44D5E3217C045D800C8445A /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A44D5E3117C045D800C8445A /* Default-568h@2x.png */; };
 		A44D5E3517C045D800C8445A /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A44D5E3317C045D800C8445A /* MainStoryboard.storyboard */; };
 		A44D5E4017C07F3000C8445A /* SelectCuisineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A44D5E3F17C07F3000C8445A /* SelectCuisineViewController.m */; };
+		A46EA53617C81A3D00237870 /* CheckOutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A46EA53517C81A3D00237870 /* CheckOutViewController.m */; };
+		A46EA53917C82CA700237870 /* TotalCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A46EA53817C82CA600237870 /* TotalCell.m */; };
+		A46EA53B17C83C6900237870 /* foociere 57.png in Resources */ = {isa = PBXBuildFile; fileRef = A46EA53A17C83C6900237870 /* foociere 57.png */; };
+		A46EA53D17C83C6F00237870 /* foociere 114.png in Resources */ = {isa = PBXBuildFile; fileRef = A46EA53C17C83C6F00237870 /* foociere 114.png */; };
 		A482D73617C6ADC3000D744E /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A482D73517C6ADC3000D744E /* Parse.framework */; };
 		A482D73817C6AEC4000D744E /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A482D73717C6AEC4000D744E /* Social.framework */; };
 		A482D73A17C6AED0000D744E /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A482D73917C6AED0000D744E /* libsqlite3.dylib */; };
@@ -141,6 +145,12 @@
 		A44D5E3417C045D800C8445A /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		A44D5E3E17C07F3000C8445A /* SelectCuisineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SelectCuisineViewController.h; path = ../SelectCuisineViewController.h; sourceTree = "<group>"; };
 		A44D5E3F17C07F3000C8445A /* SelectCuisineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SelectCuisineViewController.m; path = ../SelectCuisineViewController.m; sourceTree = "<group>"; };
+		A46EA53417C81A3D00237870 /* CheckOutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckOutViewController.h; sourceTree = "<group>"; };
+		A46EA53517C81A3D00237870 /* CheckOutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckOutViewController.m; sourceTree = "<group>"; };
+		A46EA53717C82CA600237870 /* TotalCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TotalCell.h; sourceTree = "<group>"; };
+		A46EA53817C82CA600237870 /* TotalCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TotalCell.m; sourceTree = "<group>"; };
+		A46EA53A17C83C6900237870 /* foociere 57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "foociere 57.png"; sourceTree = "<group>"; };
+		A46EA53C17C83C6F00237870 /* foociere 114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "foociere 114.png"; sourceTree = "<group>"; };
 		A482D73517C6ADC3000D744E /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		A482D73717C6AEC4000D744E /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		A482D73917C6AED0000D744E /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
@@ -292,6 +302,8 @@
 		A43A8C9517C57F8800D828F1 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				A46EA53717C82CA600237870 /* TotalCell.h */,
+				A46EA53817C82CA600237870 /* TotalCell.m */,
 				A482D75217C6D28A000D744E /* CuisineCell.h */,
 				A482D75317C6D28A000D744E /* CuisineCell.m */,
 				A43A8C9217C57E9500D828F1 /* RestaurantCell.h */,
@@ -325,6 +337,8 @@
 				A43A8CA317C5ACBD00D828F1 /* RestaurantInfoViewController.m */,
 				A4A0A85C17C724FA00CFB084 /* MenuViewController.h */,
 				A4A0A85D17C724FA00CFB084 /* MenuViewController.m */,
+				A46EA53417C81A3D00237870 /* CheckOutViewController.h */,
+				A46EA53517C81A3D00237870 /* CheckOutViewController.m */,
 				A44D5E3E17C07F3000C8445A /* SelectCuisineViewController.h */,
 				A44D5E3F17C07F3000C8445A /* SelectCuisineViewController.m */,
 				A4A9722317C2FEBB00E79D89 /* PreferencesViewController.h */,
@@ -338,6 +352,8 @@
 		A44D5E0F17C045D600C8445A = {
 			isa = PBXGroup;
 			children = (
+				A46EA53C17C83C6F00237870 /* foociere 114.png */,
+				A46EA53A17C83C6900237870 /* foociere 57.png */,
 				A420E89E17C53EC10033DA6D /* keys.h */,
 				A44D5E2117C045D700C8445A /* Foocierge */,
 				A44D5E1A17C045D700C8445A /* Frameworks */,
@@ -476,6 +492,8 @@
 				A43A8C9D17C5800800D828F1 /* Placeholder@2x.png in Resources */,
 				A482D75617C6D2B4000D744E /* TableCellGradient.png in Resources */,
 				A4026C4F17C721E000E9C213 /* 75-phone.png in Resources */,
+				A46EA53B17C83C6900237870 /* foociere 57.png in Resources */,
+				A46EA53D17C83C6F00237870 /* foociere 114.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -518,6 +536,8 @@
 				A4A0A85E17C724FA00CFB084 /* MenuViewController.m in Sources */,
 				A4A0A86117C733E000CFB084 /* MenuInfoViewController.m in Sources */,
 				A4A0A86417C73DA100CFB084 /* CartViewController.m in Sources */,
+				A46EA53617C81A3D00237870 /* CheckOutViewController.m in Sources */,
+				A46EA53917C82CA700237870 /* TotalCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -10,12 +10,13 @@
 #import "MenuItemCell.h"
 #import "MenuItem.h"
 #import <Parse/Parse.h>
-#import "MenuInfoViewController.h"
-#import "CartViewController.h"
+#import "SVProgressHUD.h"
+#import "CheckOutViewController.h"
 
 @interface MenuViewController ()
 {
     NSMutableArray *menuArray;
+    NSMutableArray *cartArray;
 }
 
 @end
@@ -37,6 +38,7 @@
 	// Do any additional setup after loading the view.
     
     menuArray = [[NSMutableArray alloc] init];
+    cartArray = [[NSMutableArray alloc] init];
     [self loadMenuItems];
 }
 
@@ -77,8 +79,9 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
     [self performSegueWithIdentifier:@"addMenuItemSegue" sender:self];
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -91,12 +94,21 @@
 
          
          vc.selectedMenuItem = [menuArray objectAtIndex:selectedRowIndex.row];
+         [vc setAddItemDelegate:self];
      }
     
     else if ([[segue identifier] isEqualToString:@"viewCartSegue"])
     {
-        //CartViewController *vc = (CartViewController *)segue.destinationViewController;
+        CartViewController *vc = (CartViewController *)segue.destinationViewController;
+        vc.cartArray = cartArray;
+        [vc setRemoveItemDelegate:self];
         
+    }
+    
+    else if([[segue identifier] isEqualToString:@"checkOutSegue"])
+    {
+        CheckOutViewController *vc = (CheckOutViewController *)segue.destinationViewController;
+        vc.cartArray = cartArray;
     }
 }
 
@@ -106,13 +118,33 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void)menuItemRemoved:(MenuItem *)item
+{
+    [cartArray removeObject:item];
+}
+
+-(void)menuItemAdded:(MenuItem *)item
+{
+    [cartArray addObject:item];
+    [SVProgressHUD showSuccessWithStatus:@"Added to Cart"];
+    
+}
+
 - (IBAction)cartPressed:(id)sender
 {
-    //[self performSegueWithIdentifier:@"viewCartSegue" sender:nil];
+    [self performSegueWithIdentifier:@"viewCartSegue" sender:nil];
 }
 
 - (IBAction)checkoutPressed:(id)sender
 {
     
+    //if([cartArray count] > 0)
+    {
+        [self performSegueWithIdentifier:@"checkOutSegue" sender:nil];
+    }
+    //else
+    {
+        [SVProgressHUD showErrorWithStatus:@"Nothing in Cart"];
+    }
 }
 @end

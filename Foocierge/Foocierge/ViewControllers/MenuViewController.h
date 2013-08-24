@@ -8,8 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "Restaurant.h"
+#import "MenuInfoViewController.h"
+#import "CartViewController.h"
 
-@interface MenuViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>
+@interface MenuViewController : UIViewController<UITableViewDataSource, UITableViewDelegate, AddItemDelegate, removeItemDelegate>
 
 
 @property (nonatomic, strong) Restaurant *selectedRestaurant;

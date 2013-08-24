@@ -51,6 +51,7 @@
 
 - (IBAction)addPressed:(id)sender
 {
-    
+    [self.addItemDelegate menuItemAdded:self.selectedMenuItem];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 @end
