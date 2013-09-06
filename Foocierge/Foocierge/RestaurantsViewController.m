@@ -13,6 +13,7 @@
 #import "Restaurant.h"
 #import "RestaurantCell.h"
 #import "RestaurantInfoViewController.h"
+#import <Parse/Parse.h>
 
 
 
@@ -39,11 +40,11 @@
 {
     [super viewDidLoad]; 
     
-    [SVProgressHUD showWithStatus:@"Loading Results"];
+    //[SVProgressHUD showWithStatus:@"Loading Results"];
     
     restuarantsArray = [[NSMutableArray alloc] init];
     
-    NSURL *URL = [NSURL URLWithString:@"http://api.yelp.com/v2/search?term=restaurants&ll=37.788022,-122.399797"];
+    NSURL *URL = [NSURL URLWithString:@"http://api.yelp.com/v2/search?term=mexican&ll=37.348504,-121.895653"];
     OAConsumer *consumer = [[OAConsumer alloc] initWithKey:consumerKeyFoo secret:consumerSecretFoo];
     OAToken *yelpOAToken = [[OAToken alloc] initWithKey:yelptoken secret:tokenSecret];
     
@@ -62,7 +63,26 @@
     NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
         
    
-    
+//    PFQuery *restaurantsQuery = [PFQuery queryWithClassName:@"Restaurants"];
+//    [restaurantsQuery whereKey:@"restaurantType" containedIn:self.cuisineArray];
+//    
+//    [restaurantsQuery findObjectsInBackgroundWithBlock:^(NSArray *restaurantObj, NSError *error) {
+//        for (PFObject *restItem in restaurantObj) {
+//            
+//            Restaurant *item = [[Restaurant alloc]  init];
+//            item.name = [restItem objectForKey:@"name"];
+//            item.phoneNumber = [restItem objectForKey:@"phoneNumber"];
+//            item.rating_image_url = @"http://media1.ak.yelpcdn.com/static/201012162337205794/img/ico/stars/stars_small_3.png";
+//            item.restaurantID = restItem.objectId;
+//            item.imageURL = 
+//            
+//            [restuarantsArray addObject:item];
+//        }
+//        
+//        [self.tableView reloadData];
+//        
+//    }];
+
     
 }
 
@@ -194,6 +214,7 @@
     
     NSIndexPath *selectedRowIndex = [self.tableView indexPathForSelectedRow];
     vc.selectedRestaurant = [restuarantsArray objectAtIndex:selectedRowIndex.row];
+    vc.dishTags = [self.dishTags allObjects];
 }
 
 @end

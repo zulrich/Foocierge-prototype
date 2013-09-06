@@ -17,6 +17,8 @@
 @property (nonatomic, strong) NSString *describition;
 @property (nonatomic, strong) NSString *tag;
 @property (nonatomic, strong) NSNumber *priceRange;
+@property (nonatomic, strong) NSString *primaryTag;
+@property (nonatomic, strong) NSString *secondaryTag;
 
 -(id)initWithObjID:(NSString *)objID restID:(NSString *)restID withName:(NSString *)name withPrice:(NSNumber *)priceVal withDesc:(NSString *)desc withTag:(NSString *)tag withRange:(NSNumber *)range;
 

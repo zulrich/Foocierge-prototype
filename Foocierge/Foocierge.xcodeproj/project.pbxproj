@@ -72,7 +72,9 @@
 		A4A0A86417C73DA100CFB084 /* CartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A0A86317C73DA100CFB084 /* CartViewController.m */; };
 		A4A9722517C2FEBB00E79D89 /* PreferencesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A9722417C2FEBB00E79D89 /* PreferencesViewController.m */; };
 		A4A9722917C3392200E79D89 /* RestaurantsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A9722817C3392200E79D89 /* RestaurantsViewController.m */; };
+		A4D1D2FC17DA38670042ED73 /* shrimp3.png in Resources */ = {isa = PBXBuildFile; fileRef = A4D1D2FB17DA38670042ED73 /* shrimp3.png */; };
 		A4DB916C17C7121F0070DF36 /* MenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A4DB916B17C7121F0070DF36 /* MenuItem.m */; };
+		A4F39AA817D8510F00F5714D /* pepper.png in Resources */ = {isa = PBXBuildFile; fileRef = A4F39AA717D8510F00F5714D /* pepper.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -180,8 +182,10 @@
 		A4A9722617C331F200E79D89 /* enums.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = enums.h; path = ../enums.h; sourceTree = "<group>"; };
 		A4A9722717C3392200E79D89 /* RestaurantsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RestaurantsViewController.h; path = ../RestaurantsViewController.h; sourceTree = "<group>"; };
 		A4A9722817C3392200E79D89 /* RestaurantsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RestaurantsViewController.m; path = ../RestaurantsViewController.m; sourceTree = "<group>"; };
+		A4D1D2FB17DA38670042ED73 /* shrimp3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shrimp3.png; sourceTree = "<group>"; };
 		A4DB916A17C7121F0070DF36 /* MenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MenuItem.h; path = "Foocierge/Data Model/MenuItem.h"; sourceTree = SOURCE_ROOT; };
 		A4DB916B17C7121F0070DF36 /* MenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MenuItem.m; path = "Foocierge/Data Model/MenuItem.m"; sourceTree = SOURCE_ROOT; };
+		A4F39AA717D8510F00F5714D /* pepper.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pepper.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -400,6 +404,8 @@
 		A44D5E2117C045D700C8445A /* Foocierge */ = {
 			isa = PBXGroup;
 			children = (
+				A4D1D2FB17DA38670042ED73 /* shrimp3.png */,
+				A4F39AA717D8510F00F5714D /* pepper.png */,
 				A4026C4E17C721E000E9C213 /* 75-phone.png */,
 				A44D5E2A17C045D800C8445A /* AppDelegate.h */,
 				A44D5E2B17C045D800C8445A /* AppDelegate.m */,
@@ -494,6 +500,8 @@
 				A4026C4F17C721E000E9C213 /* 75-phone.png in Resources */,
 				A46EA53B17C83C6900237870 /* foociere 57.png in Resources */,
 				A46EA53D17C83C6F00237870 /* foociere 114.png in Resources */,
+				A4F39AA817D8510F00F5714D /* pepper.png in Resources */,
+				A4D1D2FC17DA38670042ED73 /* shrimp3.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

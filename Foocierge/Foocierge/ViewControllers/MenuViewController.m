@@ -17,6 +17,8 @@
 {
     NSMutableArray *menuArray;
     NSMutableArray *cartArray;
+    NSMutableArray *numInSections;
+    NSMutableSet *sectionNames;
 }
 
 @end
@@ -39,6 +41,9 @@
     
     menuArray = [[NSMutableArray alloc] init];
     cartArray = [[NSMutableArray alloc] init];
+    numInSections = [[NSMutableArray alloc] init];
+    sectionNames = [[NSMutableSet alloc] init];
+    
     [self loadMenuItems];
 }
 
@@ -46,14 +51,18 @@
 {
     PFQuery *queryForGames = [PFQuery queryWithClassName:@"MenuItems"];
     //[queryForGames whereKey:@"restuarantID" equalTo:self.selectedRestaurant.restaurantID];
+    [queryForGames orderByAscending:@"dishTypeNum"];
     [queryForGames findObjectsInBackgroundWithBlock:^(NSArray *menuObjects, NSError *error) {
-        for (PFObject *menuItem in menuObjects) {
+        
+    for (PFObject *menuItem in menuObjects) {
             
             MenuItem *item = [[MenuItem alloc] initWithObjID:menuItem.objectId  restID:[menuItem objectForKey:@"restaurantID"] withName:[menuItem objectForKey:@"name"] withPrice:[menuItem objectForKey:@"price"] withDesc:[menuItem objectForKey:@"describition"] withTag:[menuItem objectForKey:@"tag"] withRange:[menuItem objectForKey:@"priceRange"]];
             
             [menuArray addObject:item];
             
         }
+        
+        
         
         [self.menuTableView reloadData];
     }];
@@ -72,8 +81,28 @@
     return cell;
 }
 
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return  1; //[sectionNames count];
+}
+
+-(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    
+    
+    
+   return @"Entrees";
+}
+
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+//    if ([numInSections count] > 0)
+//    {
+//        NSLog(@"%d in section %ld", [[numInSections objectAtIndex:section] intValue], (long)section);
+//        
+//          return [[numInSections objectAtIndex:section] intValue];
+//    }
+    
     return [menuArray count];
 }
 

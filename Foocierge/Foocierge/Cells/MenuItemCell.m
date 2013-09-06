@@ -30,9 +30,6 @@
 {
     self.nameLabel.text = item.name;
     
-    
-
-    
     NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
     
     [formatter setNumberStyle:NSNumberFormatterDecimalStyle];
@@ -50,16 +47,18 @@
     self.priceLabel.text = price;
     
     self.describtionLabel.text = item.describition;
+    
+    self.tag1Image.image = [UIImage imageNamed:@"pepper.png"];
 }
 
--(void)awakeFromNib
-{
-    [super awakeFromNib];
-    
-    UIImage *image = [UIImage imageNamed:@"TableCellGradient"];
-    UIImageView *backgroundImageView = [[UIImageView alloc] initWithImage:image];
-    self.backgroundView = backgroundImageView;
-}
+//-(void)awakeFromNib
+//{
+//    [super awakeFromNib];
+//    
+//    UIImage *image = [UIImage imageNamed:@"TableCellGradient"];
+//    UIImageView *backgroundImageView = [[UIImageView alloc] initWithImage:image];
+//    self.backgroundView = backgroundImageView;
+//}
 
 
 @end

@@ -13,6 +13,7 @@
 @interface PreferencesViewController ()
 {
     NSMutableDictionary *preferencesDictionary;
+    NSMutableSet *yesPreferences;
 }
 
 @end
@@ -35,6 +36,7 @@
     
     scrollView.contentSize = CGSizeMake(scrollView.frame.size.width, 680);
     preferencesDictionary = [[NSMutableDictionary alloc] init];
+    yesPreferences = [[NSMutableSet alloc] init];
     
     //[self customizeAppearence];
     
@@ -86,33 +88,67 @@
         
     if(sender == spicySegment)
     {
-        [preferencesDictionary setObject:[NSNumber numberWithInt:controller.selectedSegmentIndex ] forKey:@"spicy"];
+        //[preferencesDictionary setObject:[NSNumber numberWithInt:controller.selectedSegmentIndex ] forKey:@"spicy"];
+        
+        //[preferencesDictionary setObject:@"spicy" forKey:[NSNumber numberWithInt:controller.selectedSegmentIndex]];
+        
+        if (controller.selectedSegmentIndex == 0)
+        {
+            [yesPreferences addObject:@"spicy"];
+        }
+        
+        NSLog(@"%ld", (long)controller.selectedSegmentIndex);
     }
     
     else if (sender == sweetSegment)
     {
-        [preferencesDictionary setObject:[NSNumber numberWithInt:controller.selectedSegmentIndex ] forKey:@"sweet"];
+        //[preferencesDictionary setObject:[NSNumber numberWithInt:controller.selectedSegmentIndex ] forKey:@"sweet"];
+        //[preferencesDictionary setObject:@"spicy" forKey:[NSNumber numberWithInt:controller.selectedSegmentIndex]];
+        if (controller.selectedSegmentIndex == 0)
+        {
+            [yesPreferences addObject:@"sweet"];
+        }
     }
     
     else if (sender == savorySegment)
     {
-        [preferencesDictionary setObject:[NSNumber numberWithInt:controller.selectedSegmentIndex ] forKey:@"savory"];
+        //[preferencesDictionary setObject:[NSNumber numberWithInt:controller.selectedSegmentIndex ] forKey:@"savory"];
+        //[preferencesDictionary setObject:@"spicy" forKey:[NSNumber numberWithInt:controller.selectedSegmentIndex]];
+        if (controller.selectedSegmentIndex == 0)
+        {
+            [yesPreferences addObject:@"savory"];
+        }
     }
     
     else if (sender == organicSegment)
     {
-        NSLog(@"organic");
-        [preferencesDictionary setObject:[NSNumber numberWithInt:controller.selectedSegmentIndex ] forKey:@"organic"];
+        //NSLog(@"organic");
+        //[preferencesDictionary setObject:[NSNumber numberWithInt:controller.selectedSegmentIndex ] forKey:@"organic"];
+        //[preferencesDictionary setObject:@"spicy" forKey:[NSNumber numberWithInt:controller.selectedSegmentIndex]];
+        if (controller.selectedSegmentIndex == 0)
+        {
+            [yesPreferences addObject:@"organic"];
+        }
     }
     
     else if (sender == seafoodSegment)
     {
-        [preferencesDictionary setObject:[NSNumber numberWithInt:controller.selectedSegmentIndex ] forKey:@"seafood"];
+        //[preferencesDictionary setObject:[NSNumber numberWithInt:controller.selectedSegmentIndex ] forKey:@"seafood"];
+        //[preferencesDictionary setObject:@"spicy" forKey:[NSNumber numberWithInt:controller.selectedSegmentIndex]];
+        if (controller.selectedSegmentIndex == 0)
+        {
+            [yesPreferences addObject:@"seafood"];
+        }
     }
     
     else if (sender == saltySegment)
     {
-        [preferencesDictionary setObject:[NSNumber numberWithInt:controller.selectedSegmentIndex ] forKey:@"salty"];
+        //[preferencesDictionary setObject:[NSNumber numberWithInt:controller.selectedSegmentIndex ] forKey:@"salty"];
+        //[preferencesDictionary setObject:@"spicy" forKey:[NSNumber numberWithInt:controller.selectedSegmentIndex]];
+        if (controller.selectedSegmentIndex == 0)
+        {
+            [yesPreferences addObject:@"salty"];
+        }
     }
     
     else if (sender == priceSegment)
@@ -126,6 +162,10 @@
     RestaurantsViewController *vc = (RestaurantsViewController *)segue.destinationViewController;
     vc.preferencesDictionary = preferencesDictionary;
     vc.cuisineArray = self.cuisinePreferences;
+    NSLog(@"%@", yesPreferences);
+    vc.dishTags = yesPreferences;
+    
+    
     
 }
 @end

@@ -86,9 +86,17 @@
             
             case 2:
             {
+                NSString * price = [NSString stringWithFormat:@"%f", 2.00];
+                [cell configureCell:@"Surcharge" withPrice:price];
+                break;
+
+            }
+            case 3:
+            {
                 NSString * price = [NSString stringWithFormat:@"%f", totalPrice];
                 [cell configureCell:@"Total" withPrice:price];
                 break;
+   
             }
                 
             default:
@@ -98,6 +106,12 @@
         
         return cell;
     }
+    
+//    else if (indexPath.section == 2)
+//    {
+//        static NSString *CellIdentifier = @"TotalCell";
+//        TotalCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+//    }
     
 }
 
@@ -111,7 +125,7 @@
     }
     
     taxValue = subTotal * .07;
-    totalPrice = subTotal + taxValue;
+    totalPrice = subTotal + taxValue + 2;
     
 }
 
@@ -124,7 +138,7 @@
     
     else
     {
-        return 3;
+        return 4;
     }
     
 }

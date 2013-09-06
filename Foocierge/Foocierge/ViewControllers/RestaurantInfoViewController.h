@@ -19,6 +19,9 @@
 @property (weak, nonatomic) IBOutlet UIButton *phoneButton;
 @property (weak, nonatomic) IBOutlet UILabel *phoneLabel;
 
+
+@property (strong, nonatomic) NSArray *dishTags;
+
 @property (nonatomic, strong) Restaurant *selectedRestaurant;
 - (IBAction)phoneButtonPressed:(id)sender;
 - (IBAction)menuButtonPressed:(id)sender;

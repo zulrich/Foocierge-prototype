@@ -16,5 +16,6 @@
 @property (nonatomic, strong) NSMutableDictionary *preferencesDictionary;
 @property int priceValue;
 @property (nonatomic, strong) NSArray *cuisineArray;
+@property (nonatomic, strong) NSMutableSet *dishTags;
 
 @end

@@ -53,12 +53,20 @@
 
 -(void)loadMenuItems
 {
-    PFQuery *queryForGames = [PFQuery queryWithClassName:@"MenuItems"];
+    //NSCompoundPredicate *pred = [NSCompoundPredicate pre]
+   // NSPredicate *predicate = [NSPredicate predicateWithFormat:@"primaryTag IN {%@} or secondaryTag IN {%@}" argumentArray:self.dishTags];
+    //NSLog(@"predicate %@", [predicate description]);
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"primaryTag IN {'spicy'}", nil];
+    PFQuery *queryForGames = [PFQuery queryWithClassName:@"MenuItems" predicate:predicate];
+    //PFQuery *queryForGames = [PFQuery queryWithClassName:@"MenuItems"];
     //[queryForGames whereKey:@"restuarantID" equalTo:self.selectedRestaurant.restaurantID];
     [queryForGames findObjectsInBackgroundWithBlock:^(NSArray *menuObjects, NSError *error) {
         for (PFObject *menuItem in menuObjects) {
            
             MenuItem *item = [[MenuItem alloc] initWithObjID:menuItem.objectId  restID:[menuItem objectForKey:@"restaurantID"] withName:[menuItem objectForKey:@"name"] withPrice:[menuItem objectForKey:@"price"] withDesc:[menuItem objectForKey:@"describition"] withTag:[menuItem objectForKey:@"tag"] withRange:[menuItem objectForKey:@"priceRange"]];
+            
+            item.primaryTag = [menuItem objectForKey:@"primaryTag"];
+            item.secondaryTag = [menuItem objectForKey:@"secondaryTag"];
             
             [previewMenuItems addObject:item];
                             
@@ -96,6 +104,12 @@
     [self.mapView setRegion:viewRegion animated:YES];
     
     CLLocationCoordinate2D coord = CLLocationCoordinate2DMake(lattitude_hard_cord, longitude_hard_cord);
+    
+    MKPointAnnotation *annotation = [[MKPointAnnotation alloc] init];
+    [annotation setCoordinate:coord];
+    [annotation setTitle:self.selectedRestaurant.name];
+    [annotation setSubtitle:address];
+    [self.mapView addAnnotation:annotation];
 
 }
 
@@ -120,7 +134,12 @@
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [previewMenuItems count];
+    if ([previewMenuItems count] >= 3)
+    {
+        return 3;
+    }
+    
+    else return [previewMenuItems count];
 }
 
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView

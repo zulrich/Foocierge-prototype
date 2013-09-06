@@ -9,6 +9,7 @@
 #import "SelectCuisineViewController.h"
 #import "PreferencesViewController.h"
 #import "CuisineCell.h"
+#import <Parse/Parse.h>
 
 @interface SelectCuisineViewController ()
 {
@@ -38,6 +39,45 @@
                       @"Thai", @"Indian", @"Vietnamese", nil];
     
     selectedOptions = [[NSMutableArray alloc] init];
+    
+    
+//    for (int i = 0; i <= 45; i++)
+//    {
+//        PFObject *menuItem = [PFObject objectWithClassName:@"MenuItems"];
+//        [menuItem setObject:@"Taqueria Corona" forKey:@"RestaurantName"];
+//        [menuItem setObject:@"none" forKey:@"primaryTag"];
+//        [menuItem setObject:@"none" forKey:@"secondaryTag"];
+//        [menuItem setObject:@"pRzEnB1yrB" forKey:@"restaurantID"];
+//        
+//        if (i <= 8)
+//        {
+//            [menuItem setObject:@"Soups" forKey:@"dishType"];
+//        }
+//        
+//        else if (i <= 15)
+//        {
+//            [menuItem setObject:@"Seafood" forKey:@"dishType"];
+//
+//        }
+//        
+//        else if (i <= 38)
+//        {
+//            [menuItem setObject:@"Entrees" forKey:@"dishType"];
+//
+//        }
+//        
+//        else
+//        {
+//            [menuItem setObject:@"Side Dish" forKey:@"dishType"];
+//
+//        }
+//
+//        [menuItem saveInBackground];
+//
+//    }
+    
+
+
 }
 
 - (void)didReceiveMemoryWarning
