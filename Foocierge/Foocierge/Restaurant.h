@@ -18,6 +18,9 @@
 @property (nonatomic, strong) NSNumber *yelpRating;
 @property (nonatomic, strong) NSString *rating_image_url;
 @property (nonatomic, strong) NSDictionary *locationDictionary;
+@property (nonatomic, strong) NSNumber *latCoord;
+@property (nonatomic, strong) NSNumber *longCoord;
+@property (nonatomic, strong) NSString *address;
 
 @property (nonatomic, strong) NSString *restaurantID;
 

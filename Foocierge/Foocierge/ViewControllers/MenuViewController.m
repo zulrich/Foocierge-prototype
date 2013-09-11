@@ -49,8 +49,10 @@
 
 -(void)loadMenuItems
 {
+    NSLog(@"rest id %@", self.selectedRestaurant.restaurantID);
+    
     PFQuery *queryForGames = [PFQuery queryWithClassName:@"MenuItems"];
-    //[queryForGames whereKey:@"restuarantID" equalTo:self.selectedRestaurant.restaurantID];
+    [queryForGames whereKey:@"restaurantID" equalTo:self.selectedRestaurant.restaurantID];
     [queryForGames orderByAscending:@"dishTypeNum"];
     [queryForGames findObjectsInBackgroundWithBlock:^(NSArray *menuObjects, NSError *error) {
         

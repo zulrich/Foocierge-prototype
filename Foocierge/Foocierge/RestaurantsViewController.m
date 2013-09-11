@@ -44,7 +44,7 @@
     
     restuarantsArray = [[NSMutableArray alloc] init];
     
-    NSURL *URL = [NSURL URLWithString:@"http://api.yelp.com/v2/search?term=mexican&ll=37.348504,-121.895653"];
+    NSURL *URL = [NSURL URLWithString:@"http://api.yelp.com/v2/search?term=mediterranean&ll=37.348504,-121.895653"];
     OAConsumer *consumer = [[OAConsumer alloc] initWithKey:consumerKeyFoo secret:consumerSecretFoo];
     OAToken *yelpOAToken = [[OAToken alloc] initWithKey:yelptoken secret:tokenSecret];
     
@@ -60,28 +60,42 @@
 
     responseData = [[NSMutableData alloc] init];
     
-    NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
+    //NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
         
+    NSLog(@"cusine array %@", self.cuisineArray);
+    
+    PFQuery *restaurantsQuery = [PFQuery queryWithClassName:@"Restaurants"];
+    
+    if ([self.cuisineArray count] > 0)
+    {
+        [restaurantsQuery whereKey:@"restaurantType" containedIn:self.cuisineArray];
    
-//    PFQuery *restaurantsQuery = [PFQuery queryWithClassName:@"Restaurants"];
-//    [restaurantsQuery whereKey:@"restaurantType" containedIn:self.cuisineArray];
-//    
-//    [restaurantsQuery findObjectsInBackgroundWithBlock:^(NSArray *restaurantObj, NSError *error) {
-//        for (PFObject *restItem in restaurantObj) {
-//            
-//            Restaurant *item = [[Restaurant alloc]  init];
-//            item.name = [restItem objectForKey:@"name"];
-//            item.phoneNumber = [restItem objectForKey:@"phoneNumber"];
-//            item.rating_image_url = @"http://media1.ak.yelpcdn.com/static/201012162337205794/img/ico/stars/stars_small_3.png";
-//            item.restaurantID = restItem.objectId;
-//            item.imageURL = 
-//            
-//            [restuarantsArray addObject:item];
-//        }
-//        
-//        [self.tableView reloadData];
-//        
-//    }];
+    }
+    
+    [restaurantsQuery findObjectsInBackgroundWithBlock:^(NSArray *restaurantObj, NSError *error) {
+        for (PFObject *restItem in restaurantObj) {
+            
+            Restaurant *item = [[Restaurant alloc]  init];
+            item.name = [restItem objectForKey:@"name"];
+            item.phoneNumber = [restItem objectForKey:@"phoneNumber"];
+            item.rating_image_url = [restItem objectForKey:@"ratingImageURL"];
+            item.restaurantID = restItem.objectId;
+                        
+            PFGeoPoint *point = [restItem objectForKey:@"location"];
+            
+            item.latCoord = [NSNumber numberWithDouble:point.latitude];
+            item.longCoord = [NSNumber numberWithDouble:point.longitude];
+
+            item.imageURL = [restItem objectForKey:@"imageURL"];
+            item.distanceFromCurrentLocation = [NSNumber numberWithDouble:.2];
+            item.address = [restItem objectForKey:@"address"];
+            
+            [restuarantsArray addObject:item];
+        }
+    
+        [self.tableView reloadData];
+        
+    }];
 
     
 }
@@ -126,20 +140,6 @@
     //NSLog(@"business %@", businesses);
 }
 
-
-//- (void)fetchedData:(NSData *)responseData {
-//    //parse out the json data
-//    NSError* error;
-//    NSDictionary* json = [NSJSONSerialization
-//                          JSONObjectWithData:responseData //1
-//                          
-//                          options:kNilOptions
-//                          error:&error];
-//    
-//    NSArray* latestLoans = [json objectForKey:@"businesses"]; //2
-//    
-//    NSLog(@"businesses: %@", latestLoans); //3
-//}
 
 - (void)didReceiveMemoryWarning
 {

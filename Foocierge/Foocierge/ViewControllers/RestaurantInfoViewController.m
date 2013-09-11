@@ -53,13 +53,9 @@
 
 -(void)loadMenuItems
 {
-    //NSCompoundPredicate *pred = [NSCompoundPredicate pre]
-   // NSPredicate *predicate = [NSPredicate predicateWithFormat:@"primaryTag IN {%@} or secondaryTag IN {%@}" argumentArray:self.dishTags];
-    //NSLog(@"predicate %@", [predicate description]);
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"primaryTag IN {'spicy'}", nil];
-    PFQuery *queryForGames = [PFQuery queryWithClassName:@"MenuItems" predicate:predicate];
-    //PFQuery *queryForGames = [PFQuery queryWithClassName:@"MenuItems"];
-    //[queryForGames whereKey:@"restuarantID" equalTo:self.selectedRestaurant.restaurantID];
+
+    PFQuery *queryForGames = [PFQuery queryWithClassName:@"MenuItems"];
+    [queryForGames whereKey:@"restaurantID" equalTo:self.selectedRestaurant.restaurantID];
     [queryForGames findObjectsInBackgroundWithBlock:^(NSArray *menuObjects, NSError *error) {
         for (PFObject *menuItem in menuObjects) {
            
@@ -81,15 +77,15 @@
 {
     self.restaurantName.text = self.selectedRestaurant.name;
     
-    NSArray *addArr = [[NSArray alloc]initWithArray:[self.selectedRestaurant.locationDictionary objectForKey:@"address"]];
+    //NSArray *addArr = [[NSArray alloc]initWithArray:[self.selectedRestaurant.locationDictionary objectForKey:@"address"]];
     
-    NSString *address = [addArr objectAtIndex:0];
-    NSString *city = [self.selectedRestaurant.locationDictionary objectForKey:@"city"];
+    NSString *address = self.selectedRestaurant.address; //[addArr objectAtIndex:0];
+    //NSString *city = [self.selectedRestaurant.locationDictionary objectForKey:@"city"];
     
-    NSString *fullAddr = [[NSString alloc] initWithFormat:@"%@ , %@", address, city ];
+    //NSString *fullAddr = [[NSString alloc] initWithFormat:@"%@ , %@", address, city ];
     
     
-    self.addressLabel.text = fullAddr;
+    self.addressLabel.text = address;
     self.phoneLabel.text = self.selectedRestaurant.phoneNumber;
     
     

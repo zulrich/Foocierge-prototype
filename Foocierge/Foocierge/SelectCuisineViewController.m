@@ -41,36 +41,99 @@
     selectedOptions = [[NSMutableArray alloc] init];
     
     
-//    for (int i = 0; i <= 45; i++)
+//    for (int i = 0; i <= 60; i++)
 //    {
 //        PFObject *menuItem = [PFObject objectWithClassName:@"MenuItems"];
-//        [menuItem setObject:@"Taqueria Corona" forKey:@"RestaurantName"];
+//        [menuItem setObject:@"Fireside Caffe Deli & Gelato" forKey:@"RestaurantName"];
 //        [menuItem setObject:@"none" forKey:@"primaryTag"];
 //        [menuItem setObject:@"none" forKey:@"secondaryTag"];
-//        [menuItem setObject:@"pRzEnB1yrB" forKey:@"restaurantID"];
+//        [menuItem setObject:@"UWyhDFhTn6" forKey:@"restaurantID"];
 //        
-//        if (i <= 8)
+//        if (i <= 15)
+//        {
+//            [menuItem setObject:@"Appetizers" forKey:@"dishType"];
+//            [menuItem setObject:[NSNumber numberWithInt:0] forKey:@"dishTypeNum"];
+//            [menuItem setObject:[NSNumber numberWithInt:4.95] forKey:@"price"];
+//        }
+//        
+//        else if (i <= 19)
 //        {
 //            [menuItem setObject:@"Soups" forKey:@"dishType"];
-//        }
-//        
-//        else if (i <= 15)
-//        {
-//            [menuItem setObject:@"Seafood" forKey:@"dishType"];
+//            [menuItem setObject:[NSNumber numberWithInt:1] forKey:@"dishTypeNum"];
+//            [menuItem setObject:[NSNumber numberWithInt:4.95] forKey:@"price"];
+//
+//
 //
 //        }
 //        
-//        else if (i <= 38)
+//        else if (i <= 25)
 //        {
-//            [menuItem setObject:@"Entrees" forKey:@"dishType"];
+//            [menuItem setObject:@"Salads" forKey:@"dishType"];
+//            [menuItem setObject:[NSNumber numberWithInt:2] forKey:@"dishTypeNum"];
+//
 //
 //        }
 //        
-//        else
+//        else if(i <= 38)
 //        {
-//            [menuItem setObject:@"Side Dish" forKey:@"dishType"];
+//            [menuItem setObject:@"Sandwhiches and Burgers" forKey:@"dishType"];
+//            [menuItem setObject:[NSNumber numberWithInt:3] forKey:@"dishTypeNum"];
+//            [menuItem setObject:[NSNumber numberWithInt:9.95] forKey:@"price"];
+//
+//
 //
 //        }
+//        else if(i <= 45)
+//        {
+//            [menuItem setObject:@"Wraps" forKey:@"dishType"];
+//            [menuItem setObject:[NSNumber numberWithInt:4] forKey:@"dishTypeNum"];
+//            
+//            
+//        }
+//        
+//        else if(i <= 55)
+//        {
+//            [menuItem setObject:@"Dinner Specials" forKey:@"dishType"];
+//            [menuItem setObject:[NSNumber numberWithInt:5] forKey:@"dishTypeNum"];
+//            
+//            
+//        }
+//        
+//        else if(i <= 60)
+//        {
+//            [menuItem setObject:@"Pastas" forKey:@"dishType"];
+//            [menuItem setObject:[NSNumber numberWithInt:6] forKey:@"dishTypeNum"];
+//            //[menuItem setObject:@"sweet" forKey:@"primaryTag"];
+//            
+//            
+//        }
+//        else if(i <= 50)
+//        {
+//            [menuItem setObject:@"Dolci" forKey:@"dishType"];
+//            [menuItem setObject:[NSNumber numberWithInt:7] forKey:@"dishTypeNum"];
+//            [menuItem setObject:@"sweet" forKey:@"primaryTag"];
+//
+//            
+//        }
+//        else if(i <= 52)
+//        {
+//            [menuItem setObject:@"Accompaniments" forKey:@"dishType"];
+//            [menuItem setObject:[NSNumber numberWithInt:8] forKey:@"dishTypeNum"];
+//            //[menuItem setObject:@"sweet" forKey:@"primaryTag"];
+//            
+//            
+//        }
+//        
+//        else if(i <= 61)
+//        {
+//            [menuItem setObject:@"Drinks" forKey:@"dishType"];
+//            [menuItem setObject:[NSNumber numberWithInt:9] forKey:@"dishTypeNum"];
+//            //[menuItem setObject:@"sweet" forKey:@"primaryTag"];
+//            
+//            
+//        }
+//        
+//        
 //
 //        [menuItem saveInBackground];
 //
