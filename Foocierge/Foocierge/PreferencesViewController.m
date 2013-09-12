@@ -88,13 +88,15 @@
         
     if(sender == spicySegment)
     {
-        //[preferencesDictionary setObject:[NSNumber numberWithInt:controller.selectedSegmentIndex ] forKey:@"spicy"];
-        
-        //[preferencesDictionary setObject:@"spicy" forKey:[NSNumber numberWithInt:controller.selectedSegmentIndex]];
         
         if (controller.selectedSegmentIndex == 0)
         {
             [yesPreferences addObject:@"spicy"];
+        }
+        
+        if (controller.selectedSegmentIndex == 2)
+        {
+            [yesPreferences removeObject:@"spicy"];
         }
         
         NSLog(@"%ld", (long)controller.selectedSegmentIndex);
@@ -102,52 +104,67 @@
     
     else if (sender == sweetSegment)
     {
-        //[preferencesDictionary setObject:[NSNumber numberWithInt:controller.selectedSegmentIndex ] forKey:@"sweet"];
-        //[preferencesDictionary setObject:@"spicy" forKey:[NSNumber numberWithInt:controller.selectedSegmentIndex]];
+    
         if (controller.selectedSegmentIndex == 0)
         {
             [yesPreferences addObject:@"sweet"];
+        }
+        
+        if (controller.selectedSegmentIndex == 2)
+        {
+            [yesPreferences removeObject:@"sweet"];
         }
     }
     
     else if (sender == savorySegment)
     {
-        //[preferencesDictionary setObject:[NSNumber numberWithInt:controller.selectedSegmentIndex ] forKey:@"savory"];
-        //[preferencesDictionary setObject:@"spicy" forKey:[NSNumber numberWithInt:controller.selectedSegmentIndex]];
         if (controller.selectedSegmentIndex == 0)
         {
             [yesPreferences addObject:@"savory"];
+        }
+        if (controller.selectedSegmentIndex == 2)
+        {
+            [yesPreferences removeObject:@"savory"];
         }
     }
     
     else if (sender == organicSegment)
     {
-        //NSLog(@"organic");
-        //[preferencesDictionary setObject:[NSNumber numberWithInt:controller.selectedSegmentIndex ] forKey:@"organic"];
-        //[preferencesDictionary setObject:@"spicy" forKey:[NSNumber numberWithInt:controller.selectedSegmentIndex]];
+
         if (controller.selectedSegmentIndex == 0)
         {
             [yesPreferences addObject:@"organic"];
+        }
+        
+        if (controller.selectedSegmentIndex == 2)
+        {
+            [yesPreferences removeObject:@"organic"];
         }
     }
     
     else if (sender == seafoodSegment)
     {
-        //[preferencesDictionary setObject:[NSNumber numberWithInt:controller.selectedSegmentIndex ] forKey:@"seafood"];
-        //[preferencesDictionary setObject:@"spicy" forKey:[NSNumber numberWithInt:controller.selectedSegmentIndex]];
         if (controller.selectedSegmentIndex == 0)
         {
             [yesPreferences addObject:@"seafood"];
+        }
+        
+        if (controller.selectedSegmentIndex == 2)
+        {
+            [yesPreferences removeObject:@"seafood"];
         }
     }
     
     else if (sender == saltySegment)
     {
-        //[preferencesDictionary setObject:[NSNumber numberWithInt:controller.selectedSegmentIndex ] forKey:@"salty"];
-        //[preferencesDictionary setObject:@"spicy" forKey:[NSNumber numberWithInt:controller.selectedSegmentIndex]];
         if (controller.selectedSegmentIndex == 0)
         {
             [yesPreferences addObject:@"salty"];
+        }
+        
+        if (controller.selectedSegmentIndex == 2)
+        {
+            [yesPreferences removeObject:@"salty"];
         }
     }
     

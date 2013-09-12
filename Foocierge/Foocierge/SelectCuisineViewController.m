@@ -37,9 +37,28 @@
     
     cuisineOptions = [[NSArray alloc] initWithObjects:@"Mediterranean",@"Mexican",@"Italian", @"American", @"Chinese",
                       @"Thai", @"Indian", @"Vietnamese", nil];
-    
     selectedOptions = [[NSMutableArray alloc] init];
+
     
+    
+    
+//    NSArray *sectionsArr = [[NSArray alloc] initWithObjects:[NSNumber numberWithInt:9], [NSNumber numberWithInt:7], [NSNumber numberWithInt:23], [NSNumber numberWithInt:7], nil];
+//    
+//    
+//    PFQuery *query = [PFQuery queryWithClassName:@"Menus"];
+//    [query whereKey:@"RestaurantName" equalTo:@"Taqueria Corona"];
+//    
+//    [query findObjectsInBackgroundWithBlock:^(NSArray *menuObjects, NSError *error) {
+//        
+//        for (PFObject *menuItem in menuObjects) {
+//            
+//            [menuItem setObject:sectionsArr forKey:@"NumInSections"];
+//            [menuItem save];
+//            
+//        }
+//        
+//        NSLog(@"done");
+//    }];
     
 //    for (int i = 0; i <= 60; i++)
 //    {

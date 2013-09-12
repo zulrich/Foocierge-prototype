@@ -129,7 +129,7 @@
             </objects>
             <point key="canvasLocation" x="739" y="-114"/>
         </scene>
-        <!--Preferences View Controller-->
+        <!--Preferences View Controller - Dish Preferences-->
         <scene sceneID="svm-se-nZG">
             <objects>
                 <viewController id="PfA-6x-cC7" customClass="PreferencesViewController" sceneMemberID="viewController">
@@ -289,7 +289,7 @@
                         </subviews>
                         <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
-                    <navigationItem key="navigationItem" id="GOd-3f-rVR"/>
+                    <navigationItem key="navigationItem" title="Dish Preferences" id="GOd-3f-rVR"/>
                     <connections>
                         <outlet property="organicSegment" destination="BSW-Ly-zms" id="2KG-uB-jVG"/>
                         <outlet property="priceSegment" destination="dKa-dS-GaE" id="l9X-5o-gig"/>
@@ -539,7 +539,7 @@
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </label>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Item desciption" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="G0X-E5-uGF">
-                                                    <rect key="frame" x="20" y="31" width="280" height="21"/>
+                                                    <rect key="frame" x="20" y="31" width="216" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="11"/>
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -551,6 +551,14 @@
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="8bm-m0-AeZ">
+                                                    <rect key="frame" x="244" y="32" width="20" height="20"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="2hY-B5-Fs4">
+                                                    <rect key="frame" x="280" y="32" width="20" height="20"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
@@ -558,6 +566,8 @@
                                             <outlet property="describtionLabel" destination="G0X-E5-uGF" id="f3e-W9-NyB"/>
                                             <outlet property="nameLabel" destination="i9M-Du-CiU" id="v81-eE-puD"/>
                                             <outlet property="priceLabel" destination="YOf-j8-ONV" id="YM2-wU-FmJ"/>
+                                            <outlet property="tag1Image" destination="8bm-m0-AeZ" id="mzX-u6-gpA"/>
+                                            <outlet property="tag2Image" destination="2hY-B5-Fs4" id="W6o-Rq-TRt"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -891,6 +901,112 @@
         <image name="75-phone.png" width="24" height="24"/>
         <image name="Placeholder.png" width="60" height="60"/>
     </resources>
+    <classes>
+        <class className="CartViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CartViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="cancelButtonPressed:"/>
+                <relationship kind="action" name="checkoutButtonPressed:"/>
+                <relationship kind="outlet" name="cartTableView" candidateClass="UITableView"/>
+                <relationship kind="outlet" name="checkoutButtonItem" candidateClass="UIBarButtonItem"/>
+            </relationships>
+        </class>
+        <class className="CheckOutViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CheckOutViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="cancelButtonPressed:"/>
+                <relationship kind="outlet" name="checkoutTableView" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="CuisineCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CuisineCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="cusineLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="MenuInfoViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MenuInfoViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="addPressed:"/>
+                <relationship kind="action" name="cancelButtonPressed:"/>
+                <relationship kind="outlet" name="addItemBarItem" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="describitionTextView" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="itemNameLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="titleBarItem" candidateClass="UIBarButtonItem"/>
+            </relationships>
+        </class>
+        <class className="MenuItemCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MenuItemCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="describtionLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="nameLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="priceLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="tag1Image" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="tag2Image" candidateClass="UIImageView"/>
+            </relationships>
+        </class>
+        <class className="MenuViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MenuViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="cartPressed:"/>
+                <relationship kind="action" name="checkoutPressed:"/>
+                <relationship kind="outlet" name="menuTableView" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="PreferencesViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PreferencesViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="segmentChanged:"/>
+                <relationship kind="outlet" name="organicSegment" candidateClass="UISegmentedControl"/>
+                <relationship kind="outlet" name="priceSegment" candidateClass="UISegmentedControl"/>
+                <relationship kind="outlet" name="saltySegment" candidateClass="UISegmentedControl"/>
+                <relationship kind="outlet" name="savorySegment" candidateClass="UISegmentedControl"/>
+                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
+                <relationship kind="outlet" name="seafoodSegment" candidateClass="UISegmentedControl"/>
+                <relationship kind="outlet" name="spicySegment" candidateClass="UISegmentedControl"/>
+                <relationship kind="outlet" name="sweetSegment" candidateClass="UISegmentedControl"/>
+            </relationships>
+        </class>
+        <class className="RestaurantCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/RestaurantCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="distanceLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="ratingImage" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="restaurantImage" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="restaurantName" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="RestaurantInfoViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/RestaurantInfoViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="menuButtonPressed:"/>
+                <relationship kind="action" name="phoneButtonPressed:"/>
+                <relationship kind="outlet" name="addressLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="dishTableView" candidateClass="UITableView"/>
+                <relationship kind="outlet" name="mapView" candidateClass="MKMapView"/>
+                <relationship kind="outlet" name="phoneButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="phoneLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="restaurantName" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
+            </relationships>
+        </class>
+        <class className="RestaurantsViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/RestaurantsViewController.h"/>
+        </class>
+        <class className="SelectCuisineViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SelectCuisineViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="cuisineOptionsTable" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="TotalCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TotalCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="priceLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="typeLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

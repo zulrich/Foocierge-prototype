@@ -67,11 +67,15 @@
 		A482D75417C6D28A000D744E /* CuisineCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A482D75317C6D28A000D744E /* CuisineCell.m */; };
 		A482D75617C6D2B4000D744E /* TableCellGradient.png in Resources */ = {isa = PBXBuildFile; fileRef = A482D75517C6D2B4000D744E /* TableCellGradient.png */; };
 		A482D75917C7101D000D744E /* MenuItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A482D75817C7101D000D744E /* MenuItemCell.m */; };
+		A497DBFD17E17673009FF6D7 /* organic.png in Resources */ = {isa = PBXBuildFile; fileRef = A497DBFC17E17673009FF6D7 /* organic.png */; };
+		A497DBFF17E17678009FF6D7 /* salt.png in Resources */ = {isa = PBXBuildFile; fileRef = A497DBFE17E17678009FF6D7 /* salt.png */; };
+		A497DC0117E1767F009FF6D7 /* sausage.png in Resources */ = {isa = PBXBuildFile; fileRef = A497DC0017E1767F009FF6D7 /* sausage.png */; };
 		A4A0A85E17C724FA00CFB084 /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A0A85D17C724FA00CFB084 /* MenuViewController.m */; };
 		A4A0A86117C733E000CFB084 /* MenuInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A0A86017C733E000CFB084 /* MenuInfoViewController.m */; };
 		A4A0A86417C73DA100CFB084 /* CartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A0A86317C73DA100CFB084 /* CartViewController.m */; };
 		A4A9722517C2FEBB00E79D89 /* PreferencesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A9722417C2FEBB00E79D89 /* PreferencesViewController.m */; };
 		A4A9722917C3392200E79D89 /* RestaurantsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A9722817C3392200E79D89 /* RestaurantsViewController.m */; };
+		A4C8C58E17E1729C00D620B2 /* sweet.png in Resources */ = {isa = PBXBuildFile; fileRef = A4C8C58D17E1729C00D620B2 /* sweet.png */; };
 		A4D1D2FC17DA38670042ED73 /* shrimp3.png in Resources */ = {isa = PBXBuildFile; fileRef = A4D1D2FB17DA38670042ED73 /* shrimp3.png */; };
 		A4DB916C17C7121F0070DF36 /* MenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A4DB916B17C7121F0070DF36 /* MenuItem.m */; };
 		A4F39AA817D8510F00F5714D /* pepper.png in Resources */ = {isa = PBXBuildFile; fileRef = A4F39AA717D8510F00F5714D /* pepper.png */; };
@@ -171,6 +175,9 @@
 		A482D75517C6D2B4000D744E /* TableCellGradient.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TableCellGradient.png; sourceTree = "<group>"; };
 		A482D75717C7101D000D744E /* MenuItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuItemCell.h; sourceTree = "<group>"; };
 		A482D75817C7101D000D744E /* MenuItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuItemCell.m; sourceTree = "<group>"; };
+		A497DBFC17E17673009FF6D7 /* organic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = organic.png; sourceTree = "<group>"; };
+		A497DBFE17E17678009FF6D7 /* salt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = salt.png; sourceTree = "<group>"; };
+		A497DC0017E1767F009FF6D7 /* sausage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sausage.png; sourceTree = "<group>"; };
 		A4A0A85C17C724FA00CFB084 /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
 		A4A0A85D17C724FA00CFB084 /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
 		A4A0A85F17C733E000CFB084 /* MenuInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuInfoViewController.h; sourceTree = "<group>"; };
@@ -182,6 +189,7 @@
 		A4A9722617C331F200E79D89 /* enums.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = enums.h; path = ../enums.h; sourceTree = "<group>"; };
 		A4A9722717C3392200E79D89 /* RestaurantsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RestaurantsViewController.h; path = ../RestaurantsViewController.h; sourceTree = "<group>"; };
 		A4A9722817C3392200E79D89 /* RestaurantsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RestaurantsViewController.m; path = ../RestaurantsViewController.m; sourceTree = "<group>"; };
+		A4C8C58D17E1729C00D620B2 /* sweet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sweet.png; sourceTree = "<group>"; };
 		A4D1D2FB17DA38670042ED73 /* shrimp3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shrimp3.png; sourceTree = "<group>"; };
 		A4DB916A17C7121F0070DF36 /* MenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MenuItem.h; path = "Foocierge/Data Model/MenuItem.h"; sourceTree = SOURCE_ROOT; };
 		A4DB916B17C7121F0070DF36 /* MenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MenuItem.m; path = "Foocierge/Data Model/MenuItem.m"; sourceTree = SOURCE_ROOT; };
@@ -404,6 +412,10 @@
 		A44D5E2117C045D700C8445A /* Foocierge */ = {
 			isa = PBXGroup;
 			children = (
+				A497DC0017E1767F009FF6D7 /* sausage.png */,
+				A497DBFE17E17678009FF6D7 /* salt.png */,
+				A497DBFC17E17673009FF6D7 /* organic.png */,
+				A4C8C58D17E1729C00D620B2 /* sweet.png */,
 				A4D1D2FB17DA38670042ED73 /* shrimp3.png */,
 				A4F39AA717D8510F00F5714D /* pepper.png */,
 				A4026C4E17C721E000E9C213 /* 75-phone.png */,
@@ -502,6 +514,10 @@
 				A46EA53D17C83C6F00237870 /* foociere 114.png in Resources */,
 				A4F39AA817D8510F00F5714D /* pepper.png in Resources */,
 				A4D1D2FC17DA38670042ED73 /* shrimp3.png in Resources */,
+				A4C8C58E17E1729C00D620B2 /* sweet.png in Resources */,
+				A497DBFD17E17673009FF6D7 /* organic.png in Resources */,
+				A497DBFF17E17678009FF6D7 /* salt.png in Resources */,
+				A497DC0117E1767F009FF6D7 /* sausage.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

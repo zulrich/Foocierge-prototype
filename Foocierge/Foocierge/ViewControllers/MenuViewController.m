@@ -18,7 +18,7 @@
     NSMutableArray *menuArray;
     NSMutableArray *cartArray;
     NSMutableArray *numInSections;
-    NSMutableSet *sectionNames;
+    NSMutableArray *sectionNames;
 }
 
 @end
@@ -42,14 +42,29 @@
     menuArray = [[NSMutableArray alloc] init];
     cartArray = [[NSMutableArray alloc] init];
     numInSections = [[NSMutableArray alloc] init];
-    sectionNames = [[NSMutableSet alloc] init];
+    sectionNames = [[NSMutableArray alloc] init];
     
+    
+    [self loadMenu];
+        
     [self loadMenuItems];
+}
+
+-(void)loadMenu
+{
+    PFQuery *menuQuery = [PFQuery queryWithClassName:@"Menus"];
+    [menuQuery whereKey:@"RestaurantName" equalTo:self.selectedRestaurant.name];
+    
+    PFObject *menuObj = [menuQuery getFirstObject];
+    
+    sectionNames = [menuObj objectForKey:@"MenuSections"];
+    numInSections = [menuObj objectForKey:@"NumInSections"];
 }
 
 -(void)loadMenuItems
 {
-    NSLog(@"rest id %@", self.selectedRestaurant.restaurantID);
+    
+    [menuArray removeAllObjects];
     
     PFQuery *queryForGames = [PFQuery queryWithClassName:@"MenuItems"];
     [queryForGames whereKey:@"restaurantID" equalTo:self.selectedRestaurant.restaurantID];
@@ -57,9 +72,14 @@
     [queryForGames findObjectsInBackgroundWithBlock:^(NSArray *menuObjects, NSError *error) {
         
     for (PFObject *menuItem in menuObjects) {
-            
+        
+        
+        
             MenuItem *item = [[MenuItem alloc] initWithObjID:menuItem.objectId  restID:[menuItem objectForKey:@"restaurantID"] withName:[menuItem objectForKey:@"name"] withPrice:[menuItem objectForKey:@"price"] withDesc:[menuItem objectForKey:@"describition"] withTag:[menuItem objectForKey:@"tag"] withRange:[menuItem objectForKey:@"priceRange"]];
-            
+        
+        item.primaryTag = [menuItem objectForKey:@"primaryTag"];
+        item.secondaryTag = [menuItem objectForKey:@"secondaryTag"];
+        
             [menuArray addObject:item];
             
         }
@@ -71,12 +91,31 @@
     
 }
 
+-(int)getCorrectIndex:(NSIndexPath *)indexPath
+{
+    int index = 0;
+    
+    for (int i = 0; i < indexPath.section; i++)
+    {
+        index += [[numInSections objectAtIndex:i] intValue];
+    }
+    
+    index += indexPath.row;
+    
+    return index;
+
+}
+
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    
+    //NSLog(@"index path %@", indexPath);
+    
     static NSString *CellIdentifier = @"MenuItemCell";
     MenuItemCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
-    MenuItem *item = [menuArray objectAtIndex:indexPath.row];
+    
+    MenuItem *item = [menuArray objectAtIndex:[self getCorrectIndex:indexPath]];
     
     [cell configureCell:item];
     
@@ -85,27 +124,31 @@
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return  1; //[sectionNames count];
+    
+    if ([menuArray count] > 0)
+    {
+        return  [sectionNames count];
+    }
+    
+    return 1;
+    
 }
 
 -(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
     
-    
-    
-   return @"Entrees";
+    return [sectionNames objectAtIndex:section];
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-//    if ([numInSections count] > 0)
-//    {
-//        NSLog(@"%d in section %ld", [[numInSections objectAtIndex:section] intValue], (long)section);
-//        
-//          return [[numInSections objectAtIndex:section] intValue];
-//    }
     
-    return [menuArray count];
+    if ([menuArray count] > 0)
+    {
+        return [[numInSections objectAtIndex:section] intValue];
+    }
+    
+    return 0;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -124,7 +167,7 @@
          NSIndexPath *selectedRowIndex = [self.menuTableView indexPathForSelectedRow];
 
          
-         vc.selectedMenuItem = [menuArray objectAtIndex:selectedRowIndex.row];
+         vc.selectedMenuItem = [menuArray objectAtIndex:[self getCorrectIndex:selectedRowIndex]];
          [vc setAddItemDelegate:self];
      }
     

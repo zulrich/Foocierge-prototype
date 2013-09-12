@@ -48,8 +48,72 @@
     
     self.describtionLabel.text = item.describition;
     
-    self.tag1Image.image = [UIImage imageNamed:@"pepper.png"];
+    
+    if([item.primaryTag isEqualToString:@"spicy"])
+    {
+    
+        self.tag1Image.image = [UIImage imageNamed:@"pepper.png"];
+    }
+    
+    if ([item.secondaryTag isEqualToString:@"spicy"])
+    {
+        self.tag2Image.image = [UIImage imageNamed:@"pepper.png"];
+    }
+    
+    if ([item.primaryTag isEqualToString:@"sweet"])
+    {
+        self.tag1Image.image = [UIImage imageNamed:@"sweet.png"];
+    }
+    
+    if ([item.secondaryTag isEqualToString:@"sweet"])
+    {
+        self.tag2Image.image = [UIImage imageNamed:@"sweet.png"];
+    }
+    
+    
+    if ([item.primaryTag isEqualToString:@"savory"])
+    {
+        self.tag1Image.image = [UIImage imageNamed:@"sausage.png"];
+    }
+    
+    if ([item.secondaryTag isEqualToString:@"savory"])
+    {
+        self.tag2Image.image = [UIImage imageNamed:@"sausage.png"];
+    }
+    
+    if ([item.primaryTag isEqualToString:@"organic"])
+    {
+        self.tag1Image.image = [UIImage imageNamed:@"organic.png"];
+    }
+    
+    if ([item.secondaryTag isEqualToString:@"organic"])
+    {
+        self.tag2Image.image = [UIImage imageNamed:@"organic.png"];
+    }
+    
+    if ([item.primaryTag isEqualToString:@"seafood"])
+    {
+        self.tag1Image.image = [UIImage imageNamed:@"shrimp3.png"];
+    }
+    
+    if ([item.secondaryTag isEqualToString:@"seafood"])
+    {
+        self.tag2Image.image = [UIImage imageNamed:@"shrimp3.png"];
+    }
+    
+    
+    if([item.primaryTag isEqualToString:@"salty"])
+    {
+        self.tag1Image.image = [UIImage imageNamed:@"salt.png"];
+    }
+
+    if([item.secondaryTag isEqualToString:@"salty"])
+    {
+        self.tag2Image.image = [UIImage imageNamed:@"salt.png"];
+    }
 }
+
+
 
 //-(void)awakeFromNib
 //{

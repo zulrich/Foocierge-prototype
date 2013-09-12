@@ -46,30 +46,95 @@
     [self setupView];
     [self loadMenuItems];
     
-    
-    
-        
 }
+
 
 -(void)loadMenuItems
 {
 
-    PFQuery *queryForGames = [PFQuery queryWithClassName:@"MenuItems"];
-    [queryForGames whereKey:@"restaurantID" equalTo:self.selectedRestaurant.restaurantID];
-    [queryForGames findObjectsInBackgroundWithBlock:^(NSArray *menuObjects, NSError *error) {
+    if ([self.dishTags count] > 0)
+    {
+        PFQuery *queryForGames = [PFQuery queryWithClassName:@"MenuItems"];
+        [queryForGames whereKey:@"restaurantID" equalTo:self.selectedRestaurant.restaurantID];
+        [queryForGames whereKey:@"primaryTag" containedIn:self.dishTags];
+        [queryForGames whereKey:@"secondaryTag" containedIn:self.dishTags];
+        
+        NSArray *menuObjects = [queryForGames findObjects];
+        
+        //[queryForGames findObjectsInBackgroundWithBlock:^(NSArray *menuObjects, NSError *error) {
         for (PFObject *menuItem in menuObjects) {
-           
+            
             MenuItem *item = [[MenuItem alloc] initWithObjID:menuItem.objectId  restID:[menuItem objectForKey:@"restaurantID"] withName:[menuItem objectForKey:@"name"] withPrice:[menuItem objectForKey:@"price"] withDesc:[menuItem objectForKey:@"describition"] withTag:[menuItem objectForKey:@"tag"] withRange:[menuItem objectForKey:@"priceRange"]];
             
             item.primaryTag = [menuItem objectForKey:@"primaryTag"];
             item.secondaryTag = [menuItem objectForKey:@"secondaryTag"];
             
             [previewMenuItems addObject:item];
-                            
+            
         }
         
-        [self.dishTableView reloadData];
-    }];
+        if ([previewMenuItems count] < 3)
+        {
+            PFQuery *queryForGames = [PFQuery queryWithClassName:@"MenuItems"];
+            [queryForGames whereKey:@"restaurantID" equalTo:self.selectedRestaurant.restaurantID];
+            [queryForGames whereKey:@"primaryTag" containedIn:self.dishTags];
+            NSArray *menuObjects = [queryForGames findObjects];
+            
+            //[queryForGames findObjectsInBackgroundWithBlock:^(NSArray *menuObjects, NSError *error) {
+            for (PFObject *menuItem in menuObjects) {
+                
+                MenuItem *item = [[MenuItem alloc] initWithObjID:menuItem.objectId  restID:[menuItem objectForKey:@"restaurantID"] withName:[menuItem objectForKey:@"name"] withPrice:[menuItem objectForKey:@"price"] withDesc:[menuItem objectForKey:@"describition"] withTag:[menuItem objectForKey:@"tag"] withRange:[menuItem objectForKey:@"priceRange"]];
+                
+                item.primaryTag = [menuItem objectForKey:@"primaryTag"];
+                item.secondaryTag = [menuItem objectForKey:@"secondaryTag"];
+                
+                [previewMenuItems addObject:item];
+                
+            }
+            
+        }
+        
+        if ([previewMenuItems count] < 3)
+        {
+            PFQuery *queryForGames = [PFQuery queryWithClassName:@"MenuItems"];
+            [queryForGames whereKey:@"restaurantID" equalTo:self.selectedRestaurant.restaurantID];
+            NSArray *menuObjects = [queryForGames findObjects];
+            for (PFObject *menuItem in menuObjects) {
+                
+                MenuItem *item = [[MenuItem alloc] initWithObjID:menuItem.objectId  restID:[menuItem objectForKey:@"restaurantID"] withName:[menuItem objectForKey:@"name"] withPrice:[menuItem objectForKey:@"price"] withDesc:[menuItem objectForKey:@"describition"] withTag:[menuItem objectForKey:@"tag"] withRange:[menuItem objectForKey:@"priceRange"]];
+                
+                item.primaryTag = [menuItem objectForKey:@"primaryTag"];
+                item.secondaryTag = [menuItem objectForKey:@"secondaryTag"];
+                
+                [previewMenuItems addObject:item];
+                
+            }
+            
+        }
+
+    }
+    
+    else
+    {
+        PFQuery *queryForGames = [PFQuery queryWithClassName:@"MenuItems"];
+        [queryForGames whereKey:@"restaurantID" equalTo:self.selectedRestaurant.restaurantID];
+        NSArray *menuObjects = [queryForGames findObjects];
+        for (PFObject *menuItem in menuObjects) {
+            
+            MenuItem *item = [[MenuItem alloc] initWithObjID:menuItem.objectId  restID:[menuItem objectForKey:@"restaurantID"] withName:[menuItem objectForKey:@"name"] withPrice:[menuItem objectForKey:@"price"] withDesc:[menuItem objectForKey:@"describition"] withTag:[menuItem objectForKey:@"tag"] withRange:[menuItem objectForKey:@"priceRange"]];
+            
+            item.primaryTag = [menuItem objectForKey:@"primaryTag"];
+            item.secondaryTag = [menuItem objectForKey:@"secondaryTag"];
+            
+            [previewMenuItems addObject:item];
+            
+        }
+
+    }
+    
+    
+    [self.dishTableView reloadData];
+    
 
 }
 
@@ -77,21 +142,18 @@
 {
     self.restaurantName.text = self.selectedRestaurant.name;
     
-    //NSArray *addArr = [[NSArray alloc]initWithArray:[self.selectedRestaurant.locationDictionary objectForKey:@"address"]];
-    
     NSString *address = self.selectedRestaurant.address; //[addArr objectAtIndex:0];
-    //NSString *city = [self.selectedRestaurant.locationDictionary objectForKey:@"city"];
-    
-    //NSString *fullAddr = [[NSString alloc] initWithFormat:@"%@ , %@", address, city ];
-    
     
     self.addressLabel.text = address;
     self.phoneLabel.text = self.selectedRestaurant.phoneNumber;
     
     
     CLLocationCoordinate2D zoomLocation;
-    zoomLocation.latitude = lattitude_hard_cord;
-    zoomLocation.longitude= longitude_hard_cord;
+//    zoomLocation.latitude = lattitude_hard_cord;
+//    zoomLocation.longitude= longitude_hard_cord;
+    
+    zoomLocation.latitude = [self.selectedRestaurant.latCoord doubleValue];
+    zoomLocation.longitude = [self.selectedRestaurant.longCoord doubleValue];
     
     // 2
     MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(zoomLocation, 0.5*METERS_PER_MILE, 0.5*METERS_PER_MILE);
@@ -99,7 +161,7 @@
     // 3
     [self.mapView setRegion:viewRegion animated:YES];
     
-    CLLocationCoordinate2D coord = CLLocationCoordinate2DMake(lattitude_hard_cord, longitude_hard_cord);
+    CLLocationCoordinate2D coord = CLLocationCoordinate2DMake([self.selectedRestaurant.latCoord doubleValue], [self.selectedRestaurant.longCoord doubleValue]);
     
     MKPointAnnotation *annotation = [[MKPointAnnotation alloc] init];
     [annotation setCoordinate:coord];
