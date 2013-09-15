@@ -251,7 +251,7 @@
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Salty?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="IqH-eY-36o">
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Salty ?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="IqH-eY-36o">
                                         <rect key="frame" x="20" y="364" width="67" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -779,7 +779,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TotalCell" id="xTo-ya-JLi" customClass="TotalCell">
-                                        <rect key="frame" x="0.0" y="112" width="320" height="66"/>
+                                        <rect key="frame" x="0.0" y="112" width="320" height="65"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="10" y="0.0" width="300" height="64"/>
@@ -807,6 +807,34 @@
                                             <outlet property="typeLabel" destination="LZI-ka-c1W" id="aAO-ZR-II4"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CreditCardCell" id="jHE-gI-kBh" customClass="TotalCell">
+                                        <rect key="frame" x="0.0" y="177" width="320" height="66"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="10" y="0.0" width="280" height="64"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="XXXX-XXXX-XXXX-1234" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="hUx-c9-ZxK">
+                                                    <rect key="frame" x="20" y="36" width="260" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </label>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Credit Card" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="11A-tU-qQ0">
+                                                    <rect key="frame" x="20" y="7" width="99" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <connections>
+                                            <outlet property="typeLabel" destination="hUx-c9-ZxK" id="Bkv-0c-1Ao"/>
+                                        </connections>
+                                    </tableViewCell>
                                 </prototypes>
                                 <connections>
                                     <outlet property="dataSource" destination="5c9-GE-lUb" id="7s2-kN-a9J"/>
@@ -819,6 +847,9 @@
                                 <items>
                                     <barButtonItem title="Check Out" width="303" id="Vxw-Io-bTF">
                                         <color key="tintColor" red="0.17993839610000001" green="0.77098612879999995" blue="0.2935012615" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <action selector="checkOutPressed:" destination="5c9-GE-lUb" id="NSa-6z-BD7"/>
+                                        </connections>
                                     </barButtonItem>
                                 </items>
                             </toolbar>
@@ -831,7 +862,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jvW-73-bct" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3120" y="610"/>
+            <point key="canvasLocation" x="3040" y="568"/>
         </scene>
         <!--Menu Info View Controller-->
         <scene sceneID="p6f-ld-cwC">
@@ -915,6 +946,7 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/CheckOutViewController.h"/>
             <relationships>
                 <relationship kind="action" name="cancelButtonPressed:"/>
+                <relationship kind="action" name="checkOutPressed:"/>
                 <relationship kind="outlet" name="checkoutTableView" candidateClass="UITableView"/>
             </relationships>
         </class>

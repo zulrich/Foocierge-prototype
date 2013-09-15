@@ -12,6 +12,7 @@
 @property (weak, nonatomic) IBOutlet UITableView *checkoutTableView;
 
 @property (nonatomic, strong) NSMutableArray *cartArray;
+- (IBAction)checkOutPressed:(id)sender;
 
 - (IBAction)cancelButtonPressed:(id)sender;
 @end

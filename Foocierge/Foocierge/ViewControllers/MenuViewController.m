@@ -212,11 +212,11 @@
 - (IBAction)checkoutPressed:(id)sender
 {
     
-    //if([cartArray count] > 0)
+    if([cartArray count] > 0)
     {
         [self performSegueWithIdentifier:@"checkOutSegue" sender:nil];
     }
-    //else
+    else
     {
         [SVProgressHUD showErrorWithStatus:@"Nothing in Cart"];
     }

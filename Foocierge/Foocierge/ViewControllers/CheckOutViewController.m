@@ -10,6 +10,7 @@
 #import "MenuItemCell.h"
 #import "MenuItem.h"
 #import "TotalCell.h"
+#import "SVProgressHUD.h"
 
 @interface CheckOutViewController ()
 {
@@ -107,11 +108,12 @@
         return cell;
     }
     
-//    else if (indexPath.section == 2)
-//    {
-//        static NSString *CellIdentifier = @"TotalCell";
-//        TotalCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-//    }
+    else if (indexPath.section == 2)
+    {
+        static NSString *CellIdentifier = @"CreditCardCell";
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+        return cell;
+    }
     
 }
 
@@ -136,19 +138,31 @@
         return [self.cartArray count];
     }
     
-    else
+    else if(section == 1)
     {
         return 4;
+    }
+    
+    else
+    {
+        return 1;
     }
     
 }
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 2;
+    return 3;
 }
 
 
+
+- (IBAction)checkOutPressed:(id)sender
+{
+    [SVProgressHUD showSuccessWithStatus:@"Order Sent"];
+    [self dismissViewControllerAnimated:YES completion:nil];
+    [self.navigationController popToRootViewControllerAnimated:YES];
+}
 
 - (IBAction)cancelButtonPressed:(id)sender
 {
