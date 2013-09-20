@@ -646,7 +646,7 @@
 		A44D5E3C17C045D800C8445A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer: zack ulrich (9AQK86HGFB)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Foocierge/YelpAPI/Frameworks\"",
@@ -657,7 +657,7 @@
 				GCC_PREFIX_HEADER = "Foocierge/Foocierge-Prefix.pch";
 				INFOPLIST_FILE = "Foocierge/Foocierge-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "7E2C193B-07C1-43C8-B3B2-FF953172F940";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -665,7 +665,7 @@
 		A44D5E3D17C045D800C8445A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer: zack ulrich (9AQK86HGFB)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Foocierge/YelpAPI/Frameworks\"",
@@ -676,7 +676,7 @@
 				GCC_PREFIX_HEADER = "Foocierge/Foocierge-Prefix.pch";
 				INFOPLIST_FILE = "Foocierge/Foocierge-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "7E2C193B-07C1-43C8-B3B2-FF953172F940";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

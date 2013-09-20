@@ -65,7 +65,7 @@
     {
         if ([[controllerItem.subviews objectAtIndex:i] isSelected] )
         {
-            [[controllerItem.subviews objectAtIndex:i] setTintColor:[UIColor greenColor]];
+            [[controllerItem.subviews objectAtIndex:i] setTintColor:[UIColor blueColor]];
         }
         else
         {

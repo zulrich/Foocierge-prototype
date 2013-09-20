@@ -21,6 +21,11 @@
     
     [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
     
+    [[UINavigationBar appearance] setBarTintColor:[UIColor lightGrayColor]];
+    //[[UIToolbar appearance] setBarTintColor:[UIColor orangeColor]];
+    
+    
+    
     return YES;
 }
 							

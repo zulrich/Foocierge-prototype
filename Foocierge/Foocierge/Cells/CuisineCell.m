@@ -19,14 +19,14 @@
     return self;
 }
 
--(void)awakeFromNib
-{
-    [super awakeFromNib];
-    
-    UIImage *image = [UIImage imageNamed:@"TableCellGradient"];
-    UIImageView *backgroundImageView = [[UIImageView alloc] initWithImage:image];
-    self.backgroundView = backgroundImageView;
-}
+//-(void)awakeFromNib
+//{
+//    [super awakeFromNib];
+//    
+//    UIImage *image = [UIImage imageNamed:@"TableCellGradient"];
+//    UIImageView *backgroundImageView = [[UIImageView alloc] initWithImage:image];
+//    self.backgroundView = backgroundImageView;
+//}
 
 -(void)configureCell:name
 {
