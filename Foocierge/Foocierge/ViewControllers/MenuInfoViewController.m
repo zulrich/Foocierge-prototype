@@ -29,7 +29,7 @@
 	// Do any additional setup after loading the view.
     
     self.itemNameLabel.text = self.selectedMenuItem.name;
-    //self.titleBarItem.title = self.selectedMenuItem.name;
+    self.titleBarItem.title = self.selectedMenuItem.name;
     
     NSString *string = [NSString stringWithFormat:@"Add Item $%@", self.selectedMenuItem.price];
     self.addItemBarItem.title = string;
